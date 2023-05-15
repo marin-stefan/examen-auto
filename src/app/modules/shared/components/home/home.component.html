@@ -1,0 +1,18 @@
+
+<p>shared-home</p>
+<app-header></app-header>
+<nav mat-tab-nav-bar>
+    <a 
+        mat-tab-link *ngFor="let tabItem of tabs" 
+        [routerLink]="tabItem.route"
+        routerLinkActive 
+        #rla="routerLinkActive" 
+        [active]="rla.isActive">
+        <mat-icon>
+            {{ tabItem.icon }}
+        </mat-icon>
+        {{ tabItem.label }}
+    </a>
+</nav>
+
+<router-outlet></router-outlet>

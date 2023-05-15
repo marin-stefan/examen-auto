@@ -1,0 +1,32 @@
+.header {
+    height: 12vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: pink; */
+}
+
+.logoWrapper {
+    width: 70%;
+}
+
+.logo {
+    width: 180px;
+}
+
+.headerOptions {
+    display: flex;
+    /* background-color: yellow; */
+    align-items: center;
+}
+
+.name {
+    color: rgb(35, 122, 201);
+}
+
+.name h4 {
+    font-weight: 600;
+    font-size: large;
+    margin: 0;
+}

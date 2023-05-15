@@ -7,8 +7,8 @@ import { LoginComponent } from './modules/auth/components/login/login.component'
 const routes: Routes = [
   { path: AppRoutesEnum.Default, redirectTo: 'login', pathMatch: 'full' },
   { path: AppRoutesEnum.Login, component: LoginComponent },
-  // { path: AppRoutesEnum.Admin, loadChildren: () => import blabla },
-  // { path: AppRoutesEnum.Consumer, loadChildren: () => import blabla },
+  { path: AppRoutesEnum.Admin, loadChildren: () => import ('./modules/admin/admin.module').then(m => m.AdminModule) },
+  { path: AppRoutesEnum.Consumer, loadChildren: () => import ('./modules/consumer/consumer.module').then(m => m.ConsumerModule) },
   { path: AppRoutesEnum.Error404, component: PageNotFoundComponent },
 ];
 
