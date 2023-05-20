@@ -11,17 +11,17 @@ export class ConsumerHomeComponent implements OnInit {
     {
       label: 'Statistici',
       icon: 'search',
-      route: 'xxx'
+      route: 'statistica-personala'
     },
     {
       label: 'Lista intrebari',
       icon: 'search',
-      route: 'xxx'
+      route: 'lista-intrebari'
     },
     {
       label: 'Simulare examen',
       icon: 'search',
-      route: 'xxx'
+      route: '/exam'
     }
   ]
 

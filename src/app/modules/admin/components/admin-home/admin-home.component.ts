@@ -9,14 +9,14 @@ import { TabItem } from 'src/app/modules/shared/interfaces/tabItem';
 export class AdminHomeComponent implements OnInit {
   public tabs: TabItem[] = [
     {
-      label: 'Statistici',
+      label: 'Utilizatori',
       icon: 'search',
-      route: 'xxx'
+      route: 'utilizatori'
     },
     {
       label: 'Lista intrebari',
       icon: 'search',
-      route: 'xxx'
+      route: 'lista-intrebari'
     }
   ]
 

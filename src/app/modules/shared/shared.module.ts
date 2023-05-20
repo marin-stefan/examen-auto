@@ -7,6 +7,8 @@ import { MatTabsModule } from '@angular/material/tabs'
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component';
+import { QuestionsListShellComponent } from './containers/questions-list-shell/questions-list-shell.component';
+import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 
 
 
@@ -15,7 +17,9 @@ import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component
     PageNotFoundComponent,
     HomeComponent,
     HeaderComponent,
-    LogoutBtnComponent
+    LogoutBtnComponent,
+    QuestionsListShellComponent,
+    QuestionsListComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,9 @@ import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component
   exports: [
     HomeComponent,
     HeaderComponent,
-    LogoutBtnComponent
+    LogoutBtnComponent,
+    QuestionsListShellComponent,
+    QuestionsListComponent
   ]
 })
 export class SharedModule { }

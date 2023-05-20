@@ -3,6 +3,7 @@ export enum AppRoutesEnum {
     Admin = 'admin',
     Consumer = 'consumer',
     Login = 'login',
+    Exam = 'exam',
 
     Default = '',
     Error404 = '**'
