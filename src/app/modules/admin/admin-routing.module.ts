@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router'
 import { AdminHomeComponent } from './components/admin-home/admin-home.component'
 import { UsersListShellComponent } from './containers/users-list-shell/users-list-shell.component'
 import { QuestionsListShellComponent } from '../shared/containers/questions-list-shell/questions-list-shell.component'
+import { AuthGuard } from '../shared/guards/auth-guard.guard'
+import { UserRoles } from '../shared/enums/userRolesEnum'
 
 const routes: Routes = [
     {
@@ -10,8 +12,12 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'home', pathMatch: "full" },
             { path: 'utilizatori', component: UsersListShellComponent },
+            // { path: 'utilizatori/adauga-utilizator', component: xxx },
+            // { path: 'utilizatori/editeaza-utilizator/:IdUtilizator', component: xxx },
             { path: 'lista-intrebari', component: QuestionsListShellComponent }
-        ]
+        ],
+        canActivate: [AuthGuard],
+        data: {roles: [UserRoles.Admin]}
     }
 ]
 

@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
-import { LogoutBtnComponent } from './components/logout-btn/logout-btn.component';
+import { LogOutBtnComponent } from './components/logout-btn/logout-btn.component';
 import { QuestionsListShellComponent } from './containers/questions-list-shell/questions-list-shell.component';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
 
@@ -17,7 +17,7 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     PageNotFoundComponent,
     HomeComponent,
     HeaderComponent,
-    LogoutBtnComponent,
+    LogOutBtnComponent,
     QuestionsListShellComponent,
     QuestionsListComponent
   ],
@@ -30,7 +30,7 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
   exports: [
     HomeComponent,
     HeaderComponent,
-    LogoutBtnComponent,
+    LogOutBtnComponent,
     QuestionsListShellComponent,
     QuestionsListComponent
   ]
