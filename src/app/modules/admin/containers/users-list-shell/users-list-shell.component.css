@@ -1,0 +1,93 @@
+.userlistContainerMain {
+    /* background-color: pink; */
+    display:flex;
+    flex-direction: column;
+    padding: 1% 5%;
+}
+
+.searchBarWrapper {
+    background-color: bisque;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.searchBtn, .clearBtn {
+    height: 42px;
+    width: 110px;
+    color: white;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.searchBtn {
+    background-color: rgb(35, 122, 201);
+}
+
+.clearBtn {
+    background-color: rgb(224, 73, 83);
+}
+
+.addBtn {
+    background-color: rgb(35, 122, 201);
+    color: white;
+    height: 45px;
+    font-weight: 500;
+}
+
+.userListSearch {
+    display: flex;
+    width: auto;
+}
+
+.searchBarBtns {
+    padding-top: 8px;
+}
+
+.userListTable {
+    background-color: aquamarine;
+    padding: 10px;
+    width: 100%;
+}
+
+fieldset {
+    border: 2px solid rgb(35, 122, 201);
+    border-radius: 10px;
+}
+
+mat-table {
+    box-shadow: none;
+    display: table;
+    width: 100%;
+    margin-top: 30px;
+    z-index: 1;
+    position: relative;
+
+}
+
+td.mat-cell, th.mat-header-cell {
+    vertical-align: middle;
+}
+
+th.mat-header-cell {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    opacity: 1;
+}
+
+tr:nth-child(odd) {
+    background-color: rgb(229, 247, 223);
+}
+
+tr {
+    text-align: center;
+}
+
+
+.editIcon {
+    color:rgb(35, 122, 201);
+    cursor: pointer;
+}

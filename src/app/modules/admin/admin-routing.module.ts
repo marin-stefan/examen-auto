@@ -5,16 +5,18 @@ import { UsersListShellComponent } from './containers/users-list-shell/users-lis
 import { QuestionsListShellComponent } from '../shared/containers/questions-list-shell/questions-list-shell.component'
 import { AuthGuard } from '../shared/guards/auth-guard.guard'
 import { UserRoles } from '../shared/enums/userRolesEnum'
+import { AddUserShellComponent } from './containers/add-user-shell/add-user-shell.component'
+import { EditUserShellComponent } from '../shared/containers/edit-user-shell/edit-user-shell.component'
 
 const routes: Routes = [
     {
         path: '', component : AdminHomeComponent,
         children: [
-            { path: '', redirectTo: 'home', pathMatch: "full" },
-            { path: 'utilizatori', component: UsersListShellComponent },
-            // { path: 'utilizatori/adauga-utilizator', component: xxx },
-            // { path: 'utilizatori/editeaza-utilizator/:IdUtilizator', component: xxx },
-            { path: 'lista-intrebari', component: QuestionsListShellComponent }
+            { path: '', redirectTo: 'users', pathMatch: "full" },
+            { path: 'users', component: UsersListShellComponent },
+            { path: 'user/add-user', component: AddUserShellComponent },
+            { path: 'user/edit-user/:userId', component: EditUserShellComponent },
+            { path: 'questions-list', component: QuestionsListShellComponent }
         ],
         canActivate: [AuthGuard],
         data: {roles: [UserRoles.Admin]}

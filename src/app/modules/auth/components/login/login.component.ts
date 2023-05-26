@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.authenticationService.login(username, password)
         .pipe(first()).subscribe(
           user => {
+            // this.authenticationService.setCurrentLoggedUser(user.id)
             switch(user.role) {
               case UserRoles.Admin:
                 this.router.navigate([AppRoutesEnum.Admin]);

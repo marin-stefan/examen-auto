@@ -5,15 +5,16 @@ import { QuestionsListShellComponent } from '../shared/containers/questions-list
 import { ConsumerStatsComponent } from './consumer-stats/consumer-stats.component';
 import { AuthGuard } from '../shared/guards/auth-guard.guard';
 import { UserRoles } from '../shared/enums/userRolesEnum';
+import { EditUserShellComponent } from '../shared/containers/edit-user-shell/edit-user-shell.component';
 
 const routes: Routes = [
   {
     path: '', component : ConsumerHomeComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: "full" },
-      { path: 'statistici', component: ConsumerStatsComponent } ,
-      { path: 'lista-intrebari', component: QuestionsListShellComponent },
-      // { path: '' }
+      { path: '', redirectTo: 'statistics', pathMatch: "full" },
+      { path: 'statistics', component: ConsumerStatsComponent },
+      { path: 'edit-user/:userId', component: EditUserShellComponent },
+      { path: 'questions-list', component: QuestionsListShellComponent },
     ],
     canActivate: [AuthGuard],
     data: {roles: [UserRoles.Consumer]}

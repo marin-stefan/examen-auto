@@ -1,0 +1,73 @@
+<p>add-edit-user-form works!</p>
+
+<form [formGroup]="editUserFormGroup"> 
+    <fieldset>
+        <legend>Editeaza Utilizator</legend>
+
+        <!-- last name -->
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Nume</mat-label>
+                <input
+                    formControlName="lastName"
+                    matInput
+                    placeholder="Nume"
+                    required
+                >
+            </mat-form-field>
+            <mat-error *ngIf="errorHandler('lastName', 'required')">
+                Numele este necesar
+            </mat-error>
+            <mat-error *ngIf="errorHandler('lastName', 'minLength')">
+                Numele este prea scurt
+            </mat-error>
+            <mat-error *ngIf="errorHandler('lastName', 'maxLength')">
+                Numele este prea lung
+            </mat-error>
+        </p>
+
+        <!-- first name  -->
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Prenume</mat-label>
+                <input
+                    formControlName="firstName"
+                    matInput
+                    placeholder="Prenume"
+                    required
+                >
+            </mat-form-field>
+            <mat-error *ngIf="errorHandler('firstName', 'required')">
+                Prenumele este necesar
+            </mat-error>
+            <mat-error *ngIf="errorHandler('firstName', 'minLength')">
+                Prenumele este prea scurt
+            </mat-error>
+            <mat-error *ngIf="errorHandler('firstName', 'maxLength')">
+                Prenumele este prea lung
+            </mat-error>
+        </p>
+
+        <!-- email  -->
+
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input
+                    formControlName="email"
+                    matInput
+                    placeholder="Email"
+                    required
+                >
+            </mat-form-field>
+            <mat-error *ngIf="errorHandler('email', 'required')">
+                Adresa de email este necesara
+            </mat-error>
+            <mat-error *ngIf="errorHandler('email', 'pattern')">
+                Adresa de email este invalida
+            </mat-error>
+        </p>
+
+
+    </fieldset>
+</form>

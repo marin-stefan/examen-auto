@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { AppRoutesEnum } from '../../shared/enums/appRoutesEnum';
 import jwtDecode from 'jwt-decode';
+import { UserModel } from '../../shared/interfaces/user-model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,8 @@ import jwtDecode from 'jwt-decode';
 export class AuthenticationService {
   public user: Observable<User>
   private userSubject: BehaviorSubject<User>;
+
+  public currentLoggedUser: UserModel;
 
   constructor(
     private router: Router,
@@ -31,7 +34,7 @@ export class AuthenticationService {
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
-      url: '/users/login',
+      url: '/user/login',
       options: {
         body: {username: username, password: password}
       }
@@ -60,5 +63,15 @@ export class AuthenticationService {
       return null
     }
   }
+
+  // setCurrentLoggedUser(userId: string):  void{
+  //   console.log(userId)
+    
+  //   // find in db user cu id userId si assignam la this.currentLoggedUser
+  // }
+
+  // getCurrentLoggedUserInfo(): Observable<UserModel> {
+  //   // return this.currentLoggedUser
+  // }
 
 }

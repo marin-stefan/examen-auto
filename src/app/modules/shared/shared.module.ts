@@ -9,6 +9,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogOutBtnComponent } from './components/logout-btn/logout-btn.component';
 import { QuestionsListShellComponent } from './containers/questions-list-shell/questions-list-shell.component';
 import { QuestionsListComponent } from './components/questions-list/questions-list.component';
+import { EditUserShellComponent } from './containers/edit-user-shell/edit-user-shell.component';
+import { AddEditUserFormComponent } from './components/add-edit-user-form/add-edit-user-form.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+// import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -19,20 +27,29 @@ import { QuestionsListComponent } from './components/questions-list/questions-li
     HeaderComponent,
     LogOutBtnComponent,
     QuestionsListShellComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    EditUserShellComponent,
+    AddEditUserFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
   ],
   exports: [
     HomeComponent,
     HeaderComponent,
     LogOutBtnComponent,
     QuestionsListShellComponent,
-    QuestionsListComponent
+    QuestionsListComponent,
+    AddEditUserFormComponent
   ]
 })
 export class SharedModule { }

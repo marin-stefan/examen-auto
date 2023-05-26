@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* background-color: pink; */
+    background-color: pink;
 }
 
 .logoWrapper {
@@ -17,7 +17,7 @@
 
 .headerOptions {
     display: flex;
-    /* background-color: yellow; */
+    background-color: yellow;
     align-items: center;
 }
 
@@ -26,7 +26,8 @@
 }
 
 .name h4 {
-    font-weight: 600;
+    font-weight: 500;
     font-size: large;
     margin: 0;
+    cursor: pointer;
 }

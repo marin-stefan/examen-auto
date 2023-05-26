@@ -11,12 +11,12 @@ export class AdminHomeComponent implements OnInit {
     {
       label: 'Utilizatori',
       icon: 'search',
-      route: 'utilizatori'
+      route: 'users'
     },
     {
       label: 'Lista intrebari',
       icon: 'search',
-      route: 'lista-intrebari'
+      route: 'questions-list'
     }
   ]
 

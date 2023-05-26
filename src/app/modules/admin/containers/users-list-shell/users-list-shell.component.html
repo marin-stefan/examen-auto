@@ -1,2 +1,108 @@
 <p>users-list-shell works!</p>
-<app-users-list></app-users-list>
+
+<div class="userlistContainerMain">
+    <div class="searchBarWrapper">
+        <button
+            mat-button 
+            class="addBtn"
+            routerLink="/admin/user/add-user">
+            Adauga Utilizator
+        </button>
+    
+
+        <form [formGroup]="userSearchForm" (ngSubmit)="onSubmit()" class="searchUserContainer">
+            <fieldset>
+                <legend>Cauta Utilizator</legend>
+                <div class="userListSearch">
+                    <div class="searchBarInputs">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nume</mat-label>
+                            <input matInput formControlName="lastName">
+                            <mat-icon matPrefix>search</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="searchBarBtns">
+                        <button
+                            class="searchBtn"
+                            mat-button
+                            type="submit"
+                            [disabled]="userSearchForm.invalid">
+                            Cauta
+                        </button>
+                        <button
+                            class="clearBtn"
+                            mat-button
+                            type="button"
+                            (click)="clearAll()">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <mat-spinner *ngIf="loading"></mat-spinner>
+
+    <div class="userListTable">
+        <div class="mat-table-container">
+            <mat-table 
+                [dataSource]="dataSource">
+
+                <!-- FirstName column -->
+                <ng-container matColumnDef="FirstName">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Nume
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.firstName }}
+                    </td>
+                </ng-container>
+
+                <!-- LastName column -->
+                <ng-container matColumnDef="LastName">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Prenume
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.lastName }}
+                    </td>
+                </ng-container>
+
+                <!-- email column -->
+                <ng-container matColumnDef="Email">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Email
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.email }}
+                    </td>
+                </ng-container>
+
+                <!-- actions column -->
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef>
+                        Actiuni
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon
+                            routerLink="/admin/user/edit-user/{{element._id}}"
+                            class="editIcon">
+                            create
+                        </mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            </mat-table>
+        </div>
+        <ng-container *ngIf="(searchResultsCount === 0) && !loading">
+            <h3>Nu a fost gasita nici o referinta</h3>
+        </ng-container>
+
+
+    </div>
+
+</div>
