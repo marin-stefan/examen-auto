@@ -10,12 +10,12 @@ export class AdminHomeComponent implements OnInit {
   public tabs: TabItem[] = [
     {
       label: 'Utilizatori',
-      icon: 'search',
+      icon: 'perm_contact_calendar',
       route: 'users'
     },
     {
       label: 'Lista intrebari',
-      icon: 'search',
+      icon: 'subject',
       route: 'questions-list'
     }
   ]

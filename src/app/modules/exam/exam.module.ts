@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ExamRoutingModule } from './exam-routing.module';
 import { ExamHomeComponent } from './components/exam-home/exam-home.component';
+import { SharedModule } from '../shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -11,7 +14,10 @@ import { ExamHomeComponent } from './components/exam-home/exam-home.component';
   ],
   imports: [
     CommonModule,
-    ExamRoutingModule
+    ExamRoutingModule,
+    SharedModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   exports: [
     ExamHomeComponent

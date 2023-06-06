@@ -1,0 +1,22 @@
+.formContainer {
+    padding: 1% 5%;
+}
+
+fieldset {
+    border: 2px solid rgb(35, 122, 201);
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.formSection {
+    padding: 10px 50px;
+}
+
+.passwordHideBtn {
+    margin-top: 10px;
+    float: right;
+    color:rgb(35, 122, 201);
+}

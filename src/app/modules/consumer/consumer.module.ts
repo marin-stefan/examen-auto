@@ -4,18 +4,22 @@ import { CommonModule } from '@angular/common';
 import { ConsumerRoutingModule } from './consumer-routing.module';
 import { ConsumerHomeComponent } from './components/consumer-home/consumer-home.component';
 import { SharedModule } from '../shared/shared.module';
-import { ConsumerStatsComponent } from './consumer-stats/consumer-stats.component';
+import { ConsumerStatsComponent } from './containers/consumer-stats/consumer-stats.component';
+import { StatsElementComponent } from './components/stats-element/stats-element.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
   declarations: [
     ConsumerHomeComponent,
-    ConsumerStatsComponent
+    ConsumerStatsComponent,
+    StatsElementComponent,
   ],
   imports: [
     CommonModule,
     ConsumerRoutingModule,
-    SharedModule
+    SharedModule,
+    MatProgressSpinnerModule
   ]
 })
 export class ConsumerModule { }

@@ -10,17 +10,17 @@ export class ConsumerHomeComponent implements OnInit {
   public tabs: TabItem[] = [
     {
       label: 'Statistici',
-      icon: 'search',
-      route: 'statistica-personala'
+      icon: 'equalizer',
+      route: 'statistics'
     },
     {
       label: 'Lista intrebari',
-      icon: 'search',
-      route: 'lista-intrebari'
+      icon: 'subject',
+      route: 'questions-list'
     },
     {
       label: 'Simulare examen',
-      icon: 'search',
+      icon: 'airplay',
       route: '/exam'
     }
   ]

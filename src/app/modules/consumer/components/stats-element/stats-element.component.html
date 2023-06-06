@@ -1,0 +1,15 @@
+
+<div class="mainWrapper">
+    <h2>{{ info.title }}</h2>
+    <p>{{ info.additional }}</p>
+    <div class="stats">
+        <h4>{{ info.count ? info.count : 0 }}</h4>
+
+        <ng-container *ngIf="info.percentage">
+            <h3 [ngClass]="getPercentageColorClass(info.percentage)">
+                {{ info.percentage ? info.percentage : "" }}%
+            </h3>
+        </ng-container>
+    </div>
+
+</div>

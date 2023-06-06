@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: pink;
 }
 
 .logoWrapper {
@@ -17,12 +16,14 @@
 
 .headerOptions {
     display: flex;
-    background-color: yellow;
     align-items: center;
+    
 }
 
 .name {
     color: rgb(35, 122, 201);
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .name h4 {
@@ -30,4 +31,11 @@
     font-size: large;
     margin: 0;
     cursor: pointer;
+}
+
+.userIcon {
+    color: rgb(35, 122, 201);
+    cursor: pointer;
+    padding-right: 5px;
+    margin-left: 10px;
 }

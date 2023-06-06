@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-user-form',
@@ -8,8 +10,14 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class AddEditUserFormComponent implements OnInit {
   public editUserFormGroup: FormGroup;
+  public passwordBtn: boolean = false; 
+  public disabled: boolean = false;
+  public passwordField: boolean;
+  public inputValue: string = '';
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   ngOnInit(): void {
     this.editUserFormGroup = new FormGroup({
@@ -36,7 +44,40 @@ export class AddEditUserFormComponent implements OnInit {
           Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
         ]
       ),
-    })
+      username: new FormControl(
+        '',
+        [
+          Validators.minLength(4),
+          Validators.maxLength(15),
+          Validators.required,
+        ]
+      ),
+      password: new FormControl(
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8)
+        ]
+      )
+    });
+
+    this.activatedRoute.params
+      .pipe(take(1))
+      .subscribe(param => {
+        if(param['userId']) {
+          this.passwordBtn = true;
+          this.hidePasswordField()
+        }
+      } )
+  }
+
+  hidePasswordField(): void {
+    this.disabled = !this.disabled
+    if (!this.disabled) {
+      const passwordControl = this.editUserFormGroup.get('password');
+      passwordControl.setValue('');
+      console.log("parola null")
+    }
   }
 
   public errorHandler(controlName: string, errorName: string): boolean {

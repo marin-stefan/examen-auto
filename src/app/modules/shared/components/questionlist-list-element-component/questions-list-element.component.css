@@ -1,0 +1,80 @@
+
+.mainQuestionWrapper {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: auto;
+}
+
+.questionTitle {
+    padding: 10px 5px 30px 5px;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.questionTitle h3 {
+    color: rgb(35, 122, 201);
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.questionBody {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px 5px 10px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.questionBody img {
+    height: 390px;
+    max-width: 500px
+}
+
+.questionAnswers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.answerWrapper {
+    width: 685px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answerText {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 110px;
+    border-radius: 5px;
+    width: 570px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.answerText h4 {
+    padding-left: 15px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.answerBtn {
+    width: 95px;
+    height: 120px;
+}
+
+.answerBtn h2 {
+    margin: 0;
+    font-size: xx-large;
+}
+
+.selected {
+    background-color: rgb(210, 253, 220);
+}
+
+.wrong {
+    background-color: rgb(245, 107, 105);
+}

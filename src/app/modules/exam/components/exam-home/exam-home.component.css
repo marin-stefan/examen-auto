@@ -1,0 +1,102 @@
+
+.examWrapper {
+    /* background-color: blanchedalmond; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.examHeader {
+    /* background-color: pink; */
+    display: flex;
+    width: 1500px;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 150px;
+    color: rgb(82, 79, 79);
+}
+
+.headerElem {
+    /* border: 1px solid rgb(175, 168, 168); */
+    border-radius: 3px;
+    width: 290px;
+    height: 100px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.headerElem span {
+    font-weight: 700;
+    font-size: large;
+    padding-bottom: 3px;
+}
+
+.headerElem h4 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    
+}
+
+.timer {
+    padding: 15px;
+    border-radius: 3px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: rgb(35, 122, 201) 0px 1px 4px;
+}
+
+.timer h2 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.examFooter {
+    /* background-color: yellow; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    width: 1000px;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.skipBtn {
+    background-color: rgb(239, 171, 61);
+    height: 70px;
+    color: white;
+    font-size: x-large;
+    width: 300px;
+}
+
+.skipBtn mat-icon,.sendBtn mat-icon, .cancelBtn mat-icon {
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+.sendBtn {
+    background-color: rgb(59, 186, 87);
+    height: 70px;
+    color: white;
+    font-size: x-large;
+    width: 300px;
+}
+
+.cancelBtn {
+    height: 70px;
+    color: red;
+    font-size: x-large;
+    width: 300px;
+}
+

@@ -1,6 +1,7 @@
 export enum AppRoutesEnum {
     Home = 'home',
     Admin = 'admin',
+    AddUser = 'add-user',
     Consumer = 'consumer',
     AddConsumer = 'add-consumer',
     Login = 'login',

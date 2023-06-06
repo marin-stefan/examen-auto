@@ -1,6 +1,7 @@
-
-<div class="userListMainContainer">    
-    <mat-spinner *ngIf="loading"></mat-spinner>
+<div class="addNewUserMainContainer">
+    <div class="title">
+        <h1>Formular inregistrare</h1>
+    </div>
 
     <div class="formContainer">
         <app-add-edit-user-form></app-add-edit-user-form>
@@ -8,23 +9,21 @@
 
     <div class="actionBtns">
         <button
-            (click)="onSubmit()"
-            disabled="{{ isFormChanged }}"
             mat-raised-button
             type="button"
-            class="submitBtn">
+            class="submitBtn"
+            disabled="{{ isFormChanged }}"
+            (click)="onSubmit()">
             Salveaza
         </button>
-            
+
         <button
-            (click)="onCancel()"
             mat-raised-button
             type="button"
-            class="cancelBtn">
+            class="cancelBtn"
+            (click)="onCancel()">
             Anuleaza
         </button>
     </div>
 
 </div>
-
-

@@ -1,22 +1,26 @@
-<p>edit-user-shell works!</p>
+<div class="userListMainContainer">
+    <mat-spinner *ngIf="loading"></mat-spinner>
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+    <div class="formContainer">
+        <app-add-edit-user-form></app-add-edit-user-form>
+    </div>
 
-<app-add-edit-user-form></app-add-edit-user-form>
+    <div class="actionBtns">
+        <button
+            (click)="onSubmit()"
+            type="button"
+            mat-raised-button 
+            disabled="{{ isFormChanged }}"
+            class="submitBtn">
+            Salveaza
+        </button>
+        <button
+            (click)="onCancel()"
+            class="cancelBtn"
+            mat-raised-button
+            type="button">
+            Anuleaza
+        </button>
+    </div>
 
-<div class="action-btn">
-    <button
-        (click)="onSubmit()"
-        type="button"
-        mat-raised-button 
-        class="submitBtn">
-        Salveaza
-    </button>
-    <button
-        (click)="onCancel()"
-        class="cancelBtn"
-        mat-raised-button
-        type="button">
-        Anuleaza
-    </button>
 </div>

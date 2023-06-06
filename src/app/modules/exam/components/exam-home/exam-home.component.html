@@ -1,1 +1,54 @@
-<p>exam-home works!</p>
+
+<div class="examWrapper">
+    <div class="examHeader">
+        <div class="headerElem">
+            <span>26</span>
+            <h4>Intrebari initiale</h4>
+        </div>
+
+        <div class="headerElem">
+            <span>21</span>
+            <h4>Intrebari ramase</h4>
+        </div>
+
+        <div class="timer">
+            <h2>20 : 21</h2>
+        </div>
+
+        <div class="headerElem">
+            <span>3</span>
+            <h4>Raspunsuri corecte</h4>
+        </div>
+
+        <div class="headerElem">
+            <span>2</span>
+            <h4>Raspunsuri gresite</h4>
+        </div>
+    </div>
+    
+    <app-questions-list-element></app-questions-list-element>
+    
+    <div class="examFooter">
+        <button 
+            class="skipBtn"
+            mat-raised-button>
+            <mat-icon>cached</mat-icon>
+            Raspunde mai tarziu
+        </button>
+
+        <button
+            mat-raised-button
+            class="cancelBtn">
+            <mat-icon>remove_circle</mat-icon>
+            Sterge raspuns
+        </button>
+
+        <button
+            mat-raised-button
+            class="sendBtn">
+            <mat-icon>check_circle_outline</mat-icon>
+            Trimite raspuns
+        </button>
+    </div>
+</div>
+

@@ -3,4 +3,8 @@ export interface UserModel {
     firstName: string;
     lastName: string;
     email: string;
+    totalExams: number;
+    totalPassedExams: number;
+    correctanswers: number;
+
 }

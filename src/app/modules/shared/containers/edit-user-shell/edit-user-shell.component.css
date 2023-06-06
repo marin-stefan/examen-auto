@@ -1,0 +1,28 @@
+
+.submitBtn {
+    color: white;
+    background-color: rgb(35, 122, 201);
+    margin-left: 10px;
+}
+
+.cancelBtn {
+    color: white;
+    background-color: rgb(224, 73, 83);
+    margin-left: 10px;
+}
+
+.actionBtns {
+    width: 210px;
+    margin: auto;
+}
+
+.formContainer {
+    width: 700px;
+    margin: auto;
+    padding-top: 50px;
+}
+
+.userListmainContainer {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,73 +1,125 @@
-<p>add-edit-user-form works!</p>
 
-<form [formGroup]="editUserFormGroup"> 
+<form [formGroup]="editUserFormGroup" class="formContainer"> 
     <fieldset>
         <legend>Editeaza Utilizator</legend>
 
-        <!-- last name -->
-        <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Nume</mat-label>
-                <input
-                    formControlName="lastName"
-                    matInput
-                    placeholder="Nume"
-                    required
-                >
-            </mat-form-field>
-            <mat-error *ngIf="errorHandler('lastName', 'required')">
-                Numele este necesar
-            </mat-error>
-            <mat-error *ngIf="errorHandler('lastName', 'minLength')">
-                Numele este prea scurt
-            </mat-error>
-            <mat-error *ngIf="errorHandler('lastName', 'maxLength')">
-                Numele este prea lung
-            </mat-error>
-        </p>
+        <div class="formSection">
+            <!-- last name -->
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nume</mat-label>
+                    <input
+                        formControlName="lastName"
+                        matInput
+                        placeholder="Nume"
+                        required
+                    >
+                </mat-form-field>
+                <mat-error *ngIf="errorHandler('lastName', 'required')">
+                    Numele este necesar
+                </mat-error>
+                <mat-error *ngIf="errorHandler('lastName', 'minlength')">
+                    Numele este prea scurt
+                </mat-error>
+                <mat-error *ngIf="errorHandler('lastName', 'maxlength')">
+                    Numele este prea lung
+                </mat-error>
+            </p>
 
-        <!-- first name  -->
-        <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Prenume</mat-label>
-                <input
-                    formControlName="firstName"
-                    matInput
-                    placeholder="Prenume"
-                    required
-                >
-            </mat-form-field>
-            <mat-error *ngIf="errorHandler('firstName', 'required')">
-                Prenumele este necesar
-            </mat-error>
-            <mat-error *ngIf="errorHandler('firstName', 'minLength')">
-                Prenumele este prea scurt
-            </mat-error>
-            <mat-error *ngIf="errorHandler('firstName', 'maxLength')">
-                Prenumele este prea lung
-            </mat-error>
-        </p>
+            <!-- first name  -->
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Prenume</mat-label>
+                    <input
+                        formControlName="firstName"
+                        matInput
+                        placeholder="Prenume"
+                        required
+                    >
+                </mat-form-field>
+                <mat-error *ngIf="errorHandler('firstName', 'required')">
+                    Prenumele este necesar
+                </mat-error> 
+                <mat-error *ngIf="errorHandler('firstName', 'minlength')">
+                    Prenumele este prea scurt
+                </mat-error>
+                <mat-error *ngIf="errorHandler('firstName', 'maxlength')">
+                    Prenumele este prea lung
+                </mat-error>
+            </p>
 
-        <!-- email  -->
+            <!-- email  -->
 
-        <p>
-            <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input
-                    formControlName="email"
-                    matInput
-                    placeholder="Email"
-                    required
-                >
-            </mat-form-field>
-            <mat-error *ngIf="errorHandler('email', 'required')">
-                Adresa de email este necesara
-            </mat-error>
-            <mat-error *ngIf="errorHandler('email', 'pattern')">
-                Adresa de email este invalida
-            </mat-error>
-        </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input
+                        formControlName="email"
+                        matInput
+                        placeholder="Email"
+                        required
+                    >
+                </mat-form-field>
+                <mat-error *ngIf="errorHandler('email', 'required')">
+                    Adresa de email este necesara
+                </mat-error>
+                <mat-error *ngIf="errorHandler('email', 'pattern')">
+                    Adresa de email este invalida
+                </mat-error>
+            </p>
+        </div>
 
+        <div class="formSection">
+            <!-- username  -->
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Utilizator</mat-label>
+                    <input
+                        formControlName="username"
+                        matInput
+                        placeholder="Utilizator"
+                        required
+                    >
+                </mat-form-field>
+                <mat-error *ngIf="errorHandler('username', 'required')">
+                    Utilizator este necesar
+                </mat-error>
+                <mat-error *ngIf="errorHandler('username', 'minlength')">
+                    Utilizator este prea scurt
+                </mat-error>
+                <mat-error *ngIf="errorHandler('username', 'maxlength')">
+                    Utilizator este prea lung
+                </mat-error>
+            </p>
+
+            <!-- password -->
+            
+            <p *ngIf="!disabled">
+                <mat-form-field appearance="outline">
+                    <mat-label>Parola</mat-label>
+                    <input
+                        formControlName="password"
+                        matInput
+                        placeholder="Parola"
+                    >
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-error *ngIf="errorHandler('password', 'required')">
+                    Parola este necesara
+                </mat-error>
+                <mat-error *ngIf="errorHandler('password', 'minlength')">
+                    Parola este prea scurta
+                </mat-error>
+                <mat-error *ngIf="errorHandler('password', 'maxlength')">
+                    Parola este prea lunga
+                </mat-error>
+            </p>
+            <p *ngIf="passwordBtn">
+                <button mat-raised-button (click)="hidePasswordField()" class="passwordHideBtn">Schimba parola</button>
+            </p>
+            
+        </div>
 
     </fieldset>
 </form>

@@ -1,0 +1,78 @@
+<!-- <p>questions-list-element works!</p> -->
+
+<div class="mainQuestionWrapper">
+    <div class="questionTitle">
+        <h3>
+            {{ info.text}}
+        </h3>
+    </div>
+
+    <div class="questionBody">
+        <div class="questionAnswers">
+            <div class="answerWrapper">
+                <button 
+                    class="answerBtn"
+                    mat-raised-button
+                    (click)="selectAnswer('A')"
+                    [class.selected]="isFirstAnswerSelected"
+                    [class.wrong]="isFirstAnswerSelectedWrong">
+                    <h2>A</h2>
+                </button>
+                <div 
+                    class="answerText"
+                    [class.selected]="isFirstAnswerSelected"
+                    [class.wrong]="isFirstAnswerSelectedWrong">
+                    <h4>
+                        {{ info.answers['A'] }}
+                    </h4>
+                </div>
+            </div>
+
+
+            <div class="answerWrapper">
+                <button 
+                    class="answerBtn" 
+                    mat-raised-button
+                    (click)="selectAnswer('B')"
+                    [class.selected]="isSecondAnswerSelected"
+                    [class.wrong]="isSecondAnswerSelectedWrong">
+                    <h2>B</h2>
+                </button>
+                <div 
+                    class="answerText"
+                    [class.selected]="isSecondAnswerSelected"
+                    [class.wrong]="isSecondAnswerSelectedWrong">
+                    <h4>
+                        {{ info.answers['B'] }}
+                    </h4>
+                </div>
+            </div>
+            <div class="answerWrapper">
+                <button 
+                    class="answerBtn" 
+                    mat-raised-button
+                    (click)="selectAnswer('C')"
+                    [class.selected]="isThirdAnswerSelected"
+                    [class.wrong]="isThirdAnswerSelectedWrong">
+                    <h2>C</h2>
+                </button>
+                <div 
+                    class="answerText"
+                    [class.selected]="isThirdAnswerSelected"
+                    [class.wrong]="isThirdAnswerSelectedWrong">
+                    <h4>
+                        {{ info.answers['C'] }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="questionImage">
+            <img src="https://chestionare-az.ro/wp-content/uploads/2015/03/B261-300x225.png">
+        </div>
+    </div>
+
+</div>
+
+
+

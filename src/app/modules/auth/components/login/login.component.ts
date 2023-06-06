@@ -12,10 +12,10 @@ import { AuthenticationService } from '../../services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loadingStage: boolean = false;
-  loginError: boolean = false;
-  hide: boolean = true;
-  loginForm: FormGroup;
+  public loading: boolean = false;
+  public error: boolean = false;
+  public hide: boolean = true;
+  public loginForm: FormGroup;
 
   constructor(
     private router: Router,
@@ -29,6 +29,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  addNewUser(): void{
+    this.router.navigate(['/add-user'])
+  }
+
   loginUser(): void {
     this.loginForm.markAllAsTouched();
 
@@ -36,11 +40,10 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.get('password').value;
 
     if (this.loginForm.valid) {
-      this.loadingStage = true;
+      this.loading = true;
       this.authenticationService.login(username, password)
         .pipe(first()).subscribe(
           user => {
-            // this.authenticationService.setCurrentLoggedUser(user.id)
             switch(user.role) {
               case UserRoles.Admin:
                 this.router.navigate([AppRoutesEnum.Admin]);
@@ -51,8 +54,8 @@ export class LoginComponent implements OnInit {
             };
           },
           () => {
-            this.loginError = true;
-            this.loadingStage = false;
+            this.error = true;
+            this.loading = false;
           }
         );
     }
