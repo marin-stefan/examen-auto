@@ -41,8 +41,10 @@ export class UsersListShellComponent implements OnInit {
 
   onSubmit(): void {
     let query = {}
-    if(this.userSearchForm.value.lastName) query['lastName'] = this.userSearchForm.value.lastName
-
+    if(this.userSearchForm.value.lastName) {
+      query['lastName'] = (this.userSearchForm.value.lastName).toLowerCase()
+    }
+    
     this.adminService.getAllUsers(query).subscribe({
       next: (response) => {
         this.searchResultsCount = (response.users).length

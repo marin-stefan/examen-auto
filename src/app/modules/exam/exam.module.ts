@@ -6,11 +6,15 @@ import { ExamHomeComponent } from './components/exam-home/exam-home.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FormatTimePipe } from 'src/app/pipes/format-time.pipe';
+import { ExamResultComponent } from './components/exam-result/exam-result.component';
 
 
 @NgModule({
   declarations: [
-    ExamHomeComponent
+    ExamHomeComponent,
+    FormatTimePipe,
+    ExamResultComponent,
   ],
   imports: [
     CommonModule,

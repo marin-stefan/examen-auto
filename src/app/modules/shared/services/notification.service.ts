@@ -6,10 +6,10 @@ import { ConfirmDialog } from '../interfaces/confirmDialog.interface';
   providedIn: 'root'
 })
 export class NotificationService {
-  private DEFAULT_ERROR_MESSAGE: string = 'Am intampinat o eroare. Te rog sa contactezi echipa support.';
+  private DEFAULT_ERROR_MESSAGE: string = 'Am întâmpinat o eroare. Te rog să contactezi echipa support.';
   private defaultConfirmData: ConfirmDialog = {
     title: '',
-    message: 'Doresti sa confirmi aceasta actiune?',
+    message: 'Doreşti să confirmi această acţiune?',
   };
 
   constructor() { }
@@ -62,8 +62,8 @@ export class NotificationService {
       showCancelButton: true,
       confirmButtonColor: '#',
       cancelButtonColor: '#',
-      confirmButtonText: 'Confirma',
-      cancelButtonText: 'Anuleaza'
+      confirmButtonText: 'Confirmă',
+      cancelButtonText: 'Anulează'
     }).then((result) => {
       return result.isConfirmed;
     })

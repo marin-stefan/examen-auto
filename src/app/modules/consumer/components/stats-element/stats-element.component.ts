@@ -27,4 +27,8 @@ export class StatsElementComponent implements OnInit {
     }
   };
 
+  public isValueNaN(value: any): boolean {
+    return isNaN(value);
+  }
+
 }

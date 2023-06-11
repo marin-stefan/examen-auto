@@ -4,9 +4,27 @@
         <div class="logoWrapper">
             <img class="logo" src="../../../../../assets/images/logo final.jpg" alt="Logo directia permise auto">
         </div>
+        <div class="mainStatsWrapper">
+            <div *ngIf="isConsumer()" class="statsWrapper">
+                <h4>Răspunsuri corecte: &nbsp;<span>{{ count }}</span></h4>
+            </div>
+    
+            <div *ngIf="isConsumer()" class="statsWrapper">
+                <h4>Procentaj răspunsuri: &nbsp;
+                    <span *ngIf="!isValueNaN(percentage)">
+                        {{ percentage }}%
+                    </span>
+                    <span *ngIf="isValueNaN(percentage)">
+                        0.00%
+                    </span>
+                </h4>
+            </div>
+        </div>
+
+        
 
         <div class="headerOptions">
-            <mat-icon class="userIcon">account_box</mat-icon>
+            <mat-icon class="userIcon">edit</mat-icon>
             <div class="name">
                 <h4 (click)="editUser()">{{ name }}</h4>
             </div>

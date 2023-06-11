@@ -14,7 +14,7 @@ export class AdminHomeComponent implements OnInit {
       route: 'users'
     },
     {
-      label: 'Lista intrebari',
+      label: 'Listă întrebări',
       icon: 'subject',
       route: 'questions-list'
     }

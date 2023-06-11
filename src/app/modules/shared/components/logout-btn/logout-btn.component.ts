@@ -17,6 +17,6 @@ export class LogOutBtnComponent implements OnInit {
 
   logOutUser(): any {
     this.authService.logout();
-  }
+  };
 
 }

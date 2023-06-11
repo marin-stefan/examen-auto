@@ -6,5 +6,6 @@ export interface UserModel {
     totalExams: number;
     totalPassedExams: number;
     correctanswers: number;
+    wrongAnswers: number;
 
 }

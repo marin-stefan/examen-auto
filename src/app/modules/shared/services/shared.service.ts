@@ -24,7 +24,6 @@ export class SharedService {
   }
 
   public getUserStats(userId: string): Observable<any> {
-    console.log("getstats")
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Get,

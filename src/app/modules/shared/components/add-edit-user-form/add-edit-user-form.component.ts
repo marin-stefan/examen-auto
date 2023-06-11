@@ -69,16 +69,15 @@ export class AddEditUserFormComponent implements OnInit {
           this.hidePasswordField()
         }
       } )
-  }
+  };
 
   hidePasswordField(): void {
     this.disabled = !this.disabled
     if (!this.disabled) {
       const passwordControl = this.editUserFormGroup.get('password');
       passwordControl.setValue('');
-      console.log("parola null")
     }
-  }
+  };
 
   public errorHandler(controlName: string, errorName: string): boolean {
     let control: AbstractControl = this.editUserFormGroup.controls[controlName];
@@ -87,6 +86,6 @@ export class AddEditUserFormComponent implements OnInit {
     }
 
     return false;
-  }
+  };
 
 }

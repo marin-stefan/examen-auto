@@ -28,10 +28,6 @@ export class ConsumerStatsComponent implements OnInit {
     const userId = sessionStorage.getItem('loggedUserId');
     this.stats$ = this.sharedService.getUserStats(userId),
       catchError(error => this.notificationService.errorNotification(error))
-
   }
  
-
-
-
 }

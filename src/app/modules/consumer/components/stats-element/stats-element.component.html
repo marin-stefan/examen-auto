@@ -3,11 +3,13 @@
     <h2>{{ info.title }}</h2>
     <p>{{ info.additional }}</p>
     <div class="stats">
-        <h4>{{ info.count ? info.count : 0 }}</h4>
+        <h4>{{ info.count && !isValueNaN(info.count) ? info.count : 0 }}</h4>
 
         <ng-container *ngIf="info.percentage">
             <h3 [ngClass]="getPercentageColorClass(info.percentage)">
-                {{ info.percentage ? info.percentage : "" }}%
+                <ng-container *ngIf="!isValueNaN(info.percentage)">
+                    {{ info.percentage }}%
+                </ng-container>
             </h3>
         </ng-container>
     </div>

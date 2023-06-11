@@ -45,6 +45,10 @@
     
 }
 
+.headerElem span {
+    font-size: 25px;
+}
+
 .timer {
     padding: 15px;
     border-radius: 3px;
@@ -62,7 +66,6 @@
 }
 
 .examFooter {
-    /* background-color: yellow; */
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
@@ -100,3 +103,31 @@
     width: 300px;
 }
 
+.startBtnWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.startBtnWrapper h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.startBtn {
+    background-color: rgb(59, 186, 87);
+    color: white;
+    width: 250px;
+    height: 100px;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: rgb(59, 186, 87);
+}

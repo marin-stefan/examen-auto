@@ -7,6 +7,7 @@ import { NotificationService } from '../../services/notification.service';
 import { SharedService } from '../../services/shared.service';
 import { AuthenticationService } from 'src/app/modules/auth/services/authentication.service';
 import { User } from 'src/app/modules/auth/interfaces/user';
+import { ConfirmDialog } from '../../interfaces/confirmDialog.interface';
 
 @Component({
   selector: 'app-edit-user-shell',
@@ -39,8 +40,8 @@ export class EditUserShellComponent implements OnInit {
       .subscribe(param => {
         this.userId = param['userId'];
         this.populateUserForm()
-      } )
-  }
+      })
+  };
 
   get isFormChanged(): boolean {
     this.isDisabledSaveButton = this.userForm 
@@ -48,7 +49,7 @@ export class EditUserShellComponent implements OnInit {
         : this.isDisabledSaveButton
 
     return this.isDisabledSaveButton
-  }
+  };
 
   onSubmit(): void {
     this.userForm.editUserFormGroup.markAllAsTouched();
@@ -56,10 +57,11 @@ export class EditUserShellComponent implements OnInit {
     if (this.userForm.editUserFormGroup.valid && !this.userForm.editUserFormGroup.pristine) {
       this.loading = true;
       const userData = this.userForm.editUserFormGroup.value
+      userData.firstName = (userData.firstName).toLowerCase();
+      userData.lastName = (userData.lastName).toLowerCase();
       if (userData['password'] === this.cryptedUserPassword) {
         delete userData['password']
       }
-      console.log(userData)
       
       this.sharedService.editUser(this.userId, userData)
         .pipe(take(1))
@@ -68,6 +70,7 @@ export class EditUserShellComponent implements OnInit {
           if (response.success) {
             this.isFormSaved = true;
 
+            // if the logged user changes his own data
             if (this.userId === sessionStorage.getItem('loggedUserId')) {
               this.showNotification("login")
             } else {
@@ -76,7 +79,7 @@ export class EditUserShellComponent implements OnInit {
           }
         })
     }
-  }
+  };
 
   private showNotification(message: string): void {
 
@@ -99,11 +102,7 @@ export class EditUserShellComponent implements OnInit {
           this.router.navigate(['/login'])
         })
     }
-    
-
-    
-    
-  }
+  };
 
   onCancel(): void {
     if (this.currentLoggedUserRole === 'admin') {
@@ -113,8 +112,7 @@ export class EditUserShellComponent implements OnInit {
     if (this.currentLoggedUserRole === 'consumer') {
       this.router.navigate(['consumer/statistics'])
     }
-
-  }
+  };
 
   private populateUserForm(): void {
     this.sharedService.getUser(this.userId)
@@ -123,6 +121,17 @@ export class EditUserShellComponent implements OnInit {
       this.cryptedUserPassword = user['password'];
       this.userForm.editUserFormGroup.patchValue(user)
     })
+  };
+
+  public async canDeactivate(): Promise<boolean> {
+    if (this.userForm.editUserFormGroup.dirty && !this.isFormSaved) {
+      let confirmData: ConfirmDialog = {
+        message : 'Sunteţi sigur că doriţi să renunţaţi? '
+      }
+      return await this.notificationService.confirmDialog(confirmData)
+    }
+
+    return true;
   }
 
 }

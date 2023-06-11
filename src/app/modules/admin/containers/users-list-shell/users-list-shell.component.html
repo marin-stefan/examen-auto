@@ -5,13 +5,13 @@
             mat-button 
             class="addBtn"
             routerLink="/admin/user/add-user">
-            Adauga Utilizator
+            Adaugă Utilizator
         </button>
     
 
         <form [formGroup]="userSearchForm" (ngSubmit)="onSubmit()" class="searchUserContainer">
             <fieldset>
-                <legend>Cauta Utilizator</legend>
+                <legend>Caută Utilizator</legend>
                 <div class="userListSearch">
                     <div class="searchBarInputs">
                         <mat-form-field appearance="outline">
@@ -26,14 +26,14 @@
                             mat-button
                             type="submit"
                             [disabled]="userSearchForm.invalid">
-                            Cauta
+                            Caută
                         </button>
                         <button
                             class="clearBtn"
                             mat-button
                             type="button"
                             (click)="clearAll()">
-                            Reset
+                            Resetează
                         </button>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         Nume
                     </th>
                     <td mat-cell *matCellDef="let element">
-                        {{ element.lastName }}
+                        {{ element.lastName | titlecase }}
                     </td>
                 </ng-container>
 
@@ -64,7 +64,7 @@
                         Prenume
                     </th>
                     <td mat-cell *matCellDef="let element">
-                        {{ element.firstName }}
+                        {{ element.firstName | titlecase }}
                     </td>
                 </ng-container>
 
@@ -81,7 +81,7 @@
                 <!-- actions column -->
                 <ng-container matColumnDef="Actions">
                     <th mat-header-cell *matHeaderCellDef>
-                        Actiuni
+                        Acţiuni
                     </th>
                     <td mat-cell *matCellDef="let element">
                         <mat-icon
@@ -98,7 +98,7 @@
             </mat-table>
         </div>
         <ng-container *ngIf="(searchResultsCount === 0) && !loading">
-            <h3>Nu a fost gasita nici o referinta</h3>
+            <h3>Nu a fost găsită nici o referinţă</h3>
         </ng-container>
 
 

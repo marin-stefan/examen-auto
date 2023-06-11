@@ -1,7 +1,7 @@
 
 <form [formGroup]="editUserFormGroup" class="formContainer"> 
     <fieldset>
-        <legend>Editeaza Utilizator</legend>
+        <legend>Editează Utilizator</legend>
 
         <div class="formSection">
             <!-- last name -->
@@ -61,10 +61,10 @@
                     >
                 </mat-form-field>
                 <mat-error *ngIf="errorHandler('email', 'required')">
-                    Adresa de email este necesara
+                    Adresa de email este necesară
                 </mat-error>
                 <mat-error *ngIf="errorHandler('email', 'pattern')">
-                    Adresa de email este invalida
+                    Adresa de email este invalidă
                 </mat-error>
             </p>
         </div>
@@ -96,7 +96,7 @@
             
             <p *ngIf="!disabled">
                 <mat-form-field appearance="outline">
-                    <mat-label>Parola</mat-label>
+                    <mat-label>Parolă</mat-label>
                     <input
                         formControlName="password"
                         matInput
@@ -106,17 +106,17 @@
             </p>
             <p>
                 <mat-error *ngIf="errorHandler('password', 'required')">
-                    Parola este necesara
+                    Parola este necesară
                 </mat-error>
                 <mat-error *ngIf="errorHandler('password', 'minlength')">
-                    Parola este prea scurta
+                    Parola este prea scurtă
                 </mat-error>
                 <mat-error *ngIf="errorHandler('password', 'maxlength')">
-                    Parola este prea lunga
+                    Parola este prea lungă
                 </mat-error>
             </p>
             <p *ngIf="passwordBtn">
-                <button mat-raised-button (click)="hidePasswordField()" class="passwordHideBtn">Schimba parola</button>
+                <button mat-raised-button (click)="hidePasswordField()" class="passwordHideBtn">Schimbă parola</button>
             </p>
             
         </div>

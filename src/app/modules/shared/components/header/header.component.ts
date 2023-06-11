@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   public currentLoggedUserRole: string = this.authenticationService.userValue.role;
   public currentLoggedUserInfo: UserModel;
   public name: string = '';
+  public percentage: string;
+  public count: number;
+  
 
 
   constructor(
@@ -24,7 +27,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserInfo();
-  }
+  };
+
+  public isValueNaN(value: any): boolean {
+    return isNaN(value);
+  };
+
+  public isConsumer(): boolean {
+    return this.currentLoggedUserRole === 'consumer'
+  };
 
   private getUserInfo(): void {
     const userId = sessionStorage.getItem('loggedUserId');
@@ -33,6 +44,8 @@ export class HeaderComponent implements OnInit {
     .subscribe((user) => {
       this.currentLoggedUserInfo = user
       this.name = user.firstName
+      this.count = user['correctAnswers']
+      this.percentage = ((user['correctAnswers'] / (user['correctAnswers'] + user['wrongAnswers'])) * 100).toFixed(2)
     })
   }
 

@@ -14,7 +14,7 @@ export class ConsumerHomeComponent implements OnInit {
       route: 'statistics'
     },
     {
-      label: 'Lista intrebari',
+      label: 'Listă întrebări',
       icon: 'subject',
       route: 'questions-list'
     },

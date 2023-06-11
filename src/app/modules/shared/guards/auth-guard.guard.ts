@@ -3,7 +3,6 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { AuthenticationService } from '../../auth/services/authentication.service';
 import { AuthUser } from '../../auth/interfaces/auth-user.interface';
 import { AppRoutesEnum } from '../enums/appRoutesEnum';
-// import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +28,5 @@ export class AuthGuard implements CanActivate {
 
     return false;
   }
-
-  // canActivate(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
   
 }

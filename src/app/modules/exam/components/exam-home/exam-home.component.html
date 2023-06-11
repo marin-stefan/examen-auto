@@ -1,54 +1,81 @@
 
-<div class="examWrapper">
+<div *ngIf="!inProgress && !examFinished" class="startBtnWrapper">
+    <button class="startBtn" mat-raised-button (click)="startExam()">START</button>
+</div>
+
+
+<div class="examWrapper" *ngIf="inProgress">
+
     <div class="examHeader">
         <div class="headerElem">
-            <span>26</span>
-            <h4>Intrebari initiale</h4>
+            <span>{{ totalQuestions }}</span>
+            <h4>Întrebări iniţiale</h4>
         </div>
 
         <div class="headerElem">
-            <span>21</span>
-            <h4>Intrebari ramase</h4>
+            <span>{{ questionIndexes.length }}</span>
+            <h4>Întrebări rămase</h4>
         </div>
 
         <div class="timer">
-            <h2>20 : 21</h2>
+            <h2>{{ counter | formatTime }}</h2>
         </div>
 
         <div class="headerElem">
-            <span>3</span>
-            <h4>Raspunsuri corecte</h4>
+            <span [class.green]="correctAnswers > 0">{{ correctAnswers }}</span>
+            <h4>Răspunsuri corecte</h4>
         </div>
 
         <div class="headerElem">
-            <span>2</span>
-            <h4>Raspunsuri gresite</h4>
+            <span [class.red]="wrongAnswers > 0">{{ wrongAnswers }}</span>
+            <h4>Răspunsuri greşite</h4>
         </div>
     </div>
-    
-    <app-questions-list-element></app-questions-list-element>
+
+    <ng-container *ngFor="let question of questions; let i = index">
+        <app-questions-list-element
+            *ngIf="matchQuestionIndex(i)"
+            [listMode]="false"
+            (selectedAnswerEvent)="getUserAnswer($event)"
+            [info]="question"
+            [index]="i"
+            class="questionElement">
+        </app-questions-list-element>
+    </ng-container>
     
     <div class="examFooter">
         <button 
             class="skipBtn"
-            mat-raised-button>
+            mat-raised-button
+            (click)="skipAnswer()"
+            [disabled]="isAnswerSelected">
             <mat-icon>cached</mat-icon>
-            Raspunde mai tarziu
+            Răspunde mai târziu
         </button>
 
         <button
             mat-raised-button
-            class="cancelBtn">
+            class="cancelBtn"
+            (click)="triggerCancelAnswer()">
             <mat-icon>remove_circle</mat-icon>
-            Sterge raspuns
+            Șterge răspuns
         </button>
 
         <button
             mat-raised-button
-            class="sendBtn">
+            class="sendBtn"
+            (click)="sendAnswer()"
+            [disabled]="!isAnswerSelected">
             <mat-icon>check_circle_outline</mat-icon>
-            Trimite raspuns
+            Trimite răspuns
         </button>
     </div>
 </div>
+
+<div *ngIf="!inProgress && examFinished" class="startBtnWrapper">
+    <app-exam-result
+        [points]="correctAnswers">
+    </app-exam-result>
+</div>
+
 

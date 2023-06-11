@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AddEditUserFormComponent } from '../../components/add-edit-user-form/add-edit-user-form.component';
 import { AdminService } from 'src/app/modules/admin/services/admin.service';
 import { NotificationService } from '../../services/notification.service';
+import { ConfirmDialog } from '../../interfaces/confirmDialog.interface';
 
 @Component({
   selector: 'app-add-new-user-shell',
@@ -32,7 +33,7 @@ export class AddNewUserShellComponent implements OnInit {
         : this.isDisabledSaveButton
 
     return this.isDisabledSaveButton
-  }
+  };
 
   onSubmit() {
     this.userForm.editUserFormGroup.markAllAsTouched();
@@ -55,12 +56,23 @@ export class AddNewUserShellComponent implements OnInit {
   };
 
   private showNotification(): void {
-    this.notificationService.successNotification('Utilizatorul a fost creat cu succes, te rugam sa te loghezi!')
+    this.notificationService.successNotification('Utilizatorul a fost creat cu succes, te rugăm să te loghezi din nou cu credenţialele folosite!')
     .then(() => { this.router.navigate([`/login`]) })
   };
 
   onCancel(): void {
     this.router.navigate(['/login'])
+  };
+
+  public async canDeactivate(): Promise<boolean> {
+    if (this.userForm.editUserFormGroup.dirty) {
+      let confirmData: ConfirmDialog = {
+        message : 'Sunteţi sigur că doriţi să renunţaţi? '
+      }
+      return await this.notificationService.confirmDialog(confirmData)
+    }
+
+    return true;
   }
 
 }

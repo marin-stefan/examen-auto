@@ -6,6 +6,7 @@ import { ConsumerStatsComponent } from './containers/consumer-stats/consumer-sta
 import { AuthGuard } from '../shared/guards/auth-guard.guard';
 import { UserRoles } from '../shared/enums/userRolesEnum';
 import { EditUserShellComponent } from '../shared/containers/edit-user-shell/edit-user-shell.component';
+import { CanDeactivateGuard } from '../shared/guards/can-deactivate-guard.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'statistics', pathMatch: "full" },
       { path: 'statistics', component: ConsumerStatsComponent },
-      { path: 'edit-user/:userId', component: EditUserShellComponent },
+      { path: 'edit-user/:userId', component: EditUserShellComponent, canDeactivate: [CanDeactivateGuard] },
       { path: 'questions-list', component: QuestionsListShellComponent },
     ],
     canActivate: [AuthGuard],

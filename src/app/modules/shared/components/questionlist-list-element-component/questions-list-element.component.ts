@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { QuestionModel } from '../../interfaces/question-model';
 
 @Component({
@@ -14,104 +14,67 @@ export class QuestionsListElementComponent implements OnInit {
   public isSecondAnswerSelectedWrong: boolean = false;
   public isThirdAnswerSelectedWrong: boolean = false;
 
+  public answerSelections = {
+    A: 'isFirstAnswerSelected',
+    B: 'isSecondAnswerSelected',
+    C: 'isThirdAnswerSelected'
+  };
+
   public answerable: boolean = true;
 
   @Input() info: QuestionModel;
   @Input() index: number;
   @Input() listMode: boolean;
+  @Output() selectedAnswerEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  private populateCorrectAnswers(value:string): void {
-    
-    if (value !== this.info.correct) {
-      switch(value) {
-        case 'A':
-          this.isFirstAnswerSelectedWrong = true;
-          break;
-        case 'B':
-          this.isSecondAnswerSelectedWrong = true;
-          break;
-        case 'C':
-        this.isThirdAnswerSelectedWrong = true;
-        break;
-      }
-    }
-
-    this.answerable = false;
-
-    switch(this.info.correct) {
-      case 'A':
-        this.isFirstAnswerSelected = true
-        break;
-      case 'B':
-        this.isSecondAnswerSelected = true
-        break;
-      case 'C':
-        this.isThirdAnswerSelected = true
-        break;
-    }
+  addNewItem(value: string) {
+    this.selectedAnswerEvent.emit(value);
   }
+
+  private populateCorrectAnswers(value: string): void {
+
+    if (value !== this.info.correct) {
+      const selectedKey = this.answerSelections[value] + 'Wrong';
+      this[selectedKey] = true;
+    }
+  
+    this.answerable = false;
+    const correctKey = this.answerSelections[this.info.correct];
+    this[correctKey] = true;
+  };
 
 
   selectAnswer(option: string): void {
-
     if (this.listMode === true) {
       if (this.answerable){
         this.populateCorrectAnswers(option);
       }
       return
     };
-
-    switch(option) {
-      case 'A':
-        this.isFirstAnswerSelected = !this.isFirstAnswerSelected;
-
-        if (this.isSecondAnswerSelected) {
-          this.isSecondAnswerSelected = !this.isSecondAnswerSelected;
+    
+    const selectedOption = this.answerSelections[option];
+    
+    if (selectedOption) {
+      this[selectedOption] = !this[selectedOption];
+    
+      for (const key in this.answerSelections) {
+        if (key !== option && this[this.answerSelections[key]]) {
+          this[this.answerSelections[key]] = false;
         }
-
-        if (this.isThirdAnswerSelected) {
-          this.isThirdAnswerSelected = !this.isThirdAnswerSelected
-        }
-
-        break;
-
-      case 'B':
-        this.isSecondAnswerSelected = !this.isSecondAnswerSelected;
-
-        if (this.isFirstAnswerSelected) {
-          this.isFirstAnswerSelected = !this.isFirstAnswerSelected;
-        }
-
-        if (this.isThirdAnswerSelected) {
-          this.isThirdAnswerSelected = !this.isThirdAnswerSelected
-        }
-
-        break;
-
-      case 'C':
-        this.isThirdAnswerSelected = !this.isThirdAnswerSelected;
-
-        if (this.isFirstAnswerSelected) {
-          this.isFirstAnswerSelected = !this.isFirstAnswerSelected;
-        }
-
-        if (this.isSecondAnswerSelected) {
-          this.isSecondAnswerSelected = !this.isSecondAnswerSelected
-        }
-
-        break;
-    } 
+      }
+    }
   };
 
   cancelAnswer(): void {
-    this.isFirstAnswerSelected = false;
-    this.isSecondAnswerSelected = false;
-    this.isThirdAnswerSelected = false;
+    for (const key in this.answerSelections) {
+      const answerKey = this.answerSelections[key];
+      this[answerKey] = false;
+    }
   };
 
 }

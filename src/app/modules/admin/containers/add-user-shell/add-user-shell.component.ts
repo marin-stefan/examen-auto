@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { AddEditUserFormComponent } from 'src/app/modules/shared/components/add-edit-user-form/add-edit-user-form.component';
 import { NotificationService } from 'src/app/modules/shared/services/notification.service';
 import { AdminService } from '../../services/admin.service';
+import { ConfirmDialog } from 'src/app/modules/shared/interfaces/confirmDialog.interface';
 
 @Component({
   selector: 'app-add-user-shell',
@@ -28,7 +29,7 @@ export class AddUserShellComponent  {
     this.isDisabledSaveButton = this.userForm ? this.userForm.editUserFormGroup.invalid : this.isDisabledSaveButton
 
     return this.isDisabledSaveButton;
-  }
+  };
 
   onSubmit() {
     this.userForm.editUserFormGroup.markAllAsTouched();
@@ -36,6 +37,8 @@ export class AddUserShellComponent  {
     if (this.userForm.editUserFormGroup.valid) {
       this.loading = true;
       const user = this.userForm.editUserFormGroup.value;
+      user.firstName = (user.firstName).toLowerCase();
+      user.lastName = (user.lastName).toLowerCase();
       user['roleId'] = '646b64fb3fbe5b936f890be7';
       user['totalExams'] = 0;
       user['totalPassedExams'] = 0;
@@ -62,6 +65,16 @@ export class AddUserShellComponent  {
     this.router.navigate(['/admin/users'])
   };
 
+  public async canDeactivate(): Promise<boolean> {
+    if (this.userForm.editUserFormGroup.dirty && !this.isFormSaved) {
+      let confirmData: ConfirmDialog = {
+        message : 'Sunteţi sigur că doriţi să renunţaţi? '
+      }
+      return await this.notificationService.confirmDialog(confirmData)
+    }
+
+    return true;
+  }
 
 
 }

@@ -7,7 +7,7 @@
 }
 
 .logoWrapper {
-    width: 70%;
+    width: 40%;
 }
 
 .logo {
@@ -17,13 +17,14 @@
 .headerOptions {
     display: flex;
     align-items: center;
-    
 }
 
 .name {
     color: rgb(35, 122, 201);
     margin-right: 10px;
     cursor: pointer;
+    display: flex;
+    /* width: 200px; */
 }
 
 .name h4 {
@@ -39,3 +40,24 @@
     padding-right: 5px;
     margin-left: 10px;
 }
+
+.mainStatsWrapper {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.statsWrapper h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: large;
+    
+}
+
+.statsWrapper span {
+    font-weight: 500;
+    font-size: x-large;
+    color: rgb(35, 122, 201);
+}
+

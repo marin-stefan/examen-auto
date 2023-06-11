@@ -32,7 +32,7 @@ import {MatListModule} from '@angular/material/list';
     QuestionsListElementComponent,
     EditUserShellComponent,
     AddEditUserFormComponent,
-    AddNewUserShellComponent
+    AddNewUserShellComponent,
   ],
   imports: [
     CommonModule,
@@ -53,7 +53,7 @@ import {MatListModule} from '@angular/material/list';
     LogOutBtnComponent,
     QuestionsListShellComponent,
     QuestionsListElementComponent,
-    AddEditUserFormComponent
+    AddEditUserFormComponent,
   ]
 })
 export class SharedModule { }
