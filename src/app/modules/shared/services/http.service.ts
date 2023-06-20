@@ -8,7 +8,7 @@ import { RequestConfig } from '../interfaces/requestConfig';
 })
 export class HttpService {
   // private baseUrl = 'http://127.0.0.1:8080';  // active if local deploy 
-  private baseUrl = 'https://examen-auto-72df36c4068c.herokuapp.com'    // active if deploy 
+  private baseUrl = 'https://examen-auto-624f5c9043cb.herokuapp.com'    // active if deploy 
 
   constructor(
     private httpClient: HttpClient
