@@ -1,5 +1,6 @@
 
 <div class="userlistContainerMain">
+    
     <div class="searchBarWrapper">
         <button
             mat-button 
@@ -9,28 +10,33 @@
         </button>
     
 
-        <form [formGroup]="userSearchForm" (ngSubmit)="onSubmit()" class="searchUserContainer">
+        <form 
+            [formGroup]="userSearchForm" 
+            (ngSubmit)="onSubmit()" 
+            class="searchUserContainer">
             <fieldset>
                 <legend>Caută Utilizator</legend>
                 <div class="userListSearch">
                     <div class="searchBarInputs">
                         <mat-form-field appearance="outline">
                             <mat-label>Nume</mat-label>
-                            <input matInput formControlName="lastName">
+                            <input 
+                                matInput 
+                                formControlName="lastName">
                             <mat-icon matPrefix>search</mat-icon>
                         </mat-form-field>
                     </div>
                     <div class="searchBarBtns">
                         <button
                             class="searchBtn"
-                            mat-button
+                            mat-raised-button
                             type="submit"
                             [disabled]="userSearchForm.invalid">
                             Caută
                         </button>
                         <button
                             class="clearBtn"
-                            mat-button
+                            mat-raised-button
                             type="button"
                             (click)="clearAll()">
                             Resetează
@@ -100,8 +106,6 @@
         <ng-container *ngIf="(searchResultsCount === 0) && !loading">
             <h3>Nu a fost găsită nici o referinţă</h3>
         </ng-container>
-
-
     </div>
 
 </div>

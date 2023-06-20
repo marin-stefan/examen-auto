@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AddNewUserShellComponent } from './containers/add-new-user-shell/add-new-user-shell.component';
 import {MatListModule} from '@angular/material/list';
+import { RulesAndLawsComponent } from './components/rules-and-laws/rules-and-laws.component';
 
 
 
@@ -33,6 +34,7 @@ import {MatListModule} from '@angular/material/list';
     EditUserShellComponent,
     AddEditUserFormComponent,
     AddNewUserShellComponent,
+    RulesAndLawsComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,7 @@ import {MatListModule} from '@angular/material/list';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
   ],
   exports: [
     HomeComponent,

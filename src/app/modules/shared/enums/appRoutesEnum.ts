@@ -6,6 +6,7 @@ export enum AppRoutesEnum {
     AddConsumer = 'add-consumer',
     Login = 'login',
     Exam = 'exam',
+    Law = 'law',
 
     Default = '',
     Error404 = '**'

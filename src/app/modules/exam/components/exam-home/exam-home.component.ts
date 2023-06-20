@@ -16,7 +16,6 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
 
   public isAnswerSelected: boolean = false;
   public totalQuestions: number = 26;
-  // public remainingQuestions: number = 26;
   public correctAnswers: number = 0;
   public wrongAnswers: number = 0;
   public inProgress: boolean = false;
@@ -24,14 +23,14 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
   public skippedIndexes: number[] = [];
   public userSelection: string;
   
-  public questions$: Observable<any>;
+  // public questions$: Observable<any>;
   public questions = [];
-  public questionIndexes = []; // this needs to be empty and on init populate depends on questions.length
-  public index: number; // this needs to be empty also and populated afetr questionsIndexes
+  public questionIndexes = [];
+  public index: number; 
 
-  countDown: Subscription;
-  counter = 1800;
-  tick = 1000;
+  private countDown: Subscription;
+  public counter = 1800;
+  private tick = 1000;
 
   @ViewChild(QuestionsListElementComponent) childComponent!: QuestionsListElementComponent;
 
@@ -42,9 +41,7 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userId = sessionStorage.getItem('loggedUserId')
-    // populate indexes
     this.populateIndexesToServe();
-
     this.index = this.questionIndexes[0]
     this.getQuestionsList();
   };
@@ -59,21 +56,21 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
     this.sharedService.getAllQuestions()
       .pipe(
         map((questions) => {
+
           return questions.map((question) => {
             question.answers = JSON.parse(question.answers)
             this.questions.push(question)
+
             return question
           })
         })
       ).subscribe()
-      ,
-      catchError(error => this.notificationService.errorNotification(error))
-
+      ,catchError(error => this.notificationService.errorNotification(error))
   };
 
   matchQuestionIndex(index: number): boolean {
-    // return true if question indexes match so we display only that question
-    return index === this.index
+
+    return index === this.index;
   };
 
   triggerCancelAnswer(): void {
@@ -82,7 +79,9 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
   };
 
   startExam(): void {
-    this.notificationService.warningNotification('Nu puteţi pune pauză, nu îl puteţi opri!', 'Atenţie, examenul are timp limitat la 30 minute')
+    const messageTitle = 'Nu puteţi pune pauză, nu îl puteţi opri!'; 
+    const messageText = 'Atenţie, examenul are timp limitat la 30 minute';
+    this.notificationService.warningNotification(messageTitle, messageText)
       .then(() => { 
         this.inProgress = true ;
         this.countDown = timer(0, this.tick).subscribe(() => {
@@ -96,7 +95,7 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
   };
 
   stopTimer(){
-    if(this.countDown) {
+    if (this.countDown) {
       this.countDown.unsubscribe();
       this.inProgress = false;
       this.examFinished = true;
@@ -113,19 +112,16 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
   };
 
   skipAnswer() {
-    // on skip we move first index to last and reassign this.index to the new first index
     this.questionIndexes.push(this.questionIndexes.shift());
     this.index = this.questionIndexes[0];
   };
 
   sendAnswer() {
-    // update counters
     const correctAnswer = this.questions[this.index].correct;
     this.userSelection === correctAnswer ? this.correctAnswers++ : this.wrongAnswers++ ;
     this.isAnswerSelected = false;
 
-    if ( (this.questionIndexes.length > 1) && (this.correctAnswers < 22) && (this.wrongAnswers < 5) ) {
-      // on save we remove first index and reassign this.index to the new first index
+    if ((this.questionIndexes.length > 1) && (this.correctAnswers < 22) && (this.wrongAnswers < 5)) {
       this.questionIndexes.shift();
       this.index = this.questionIndexes[0];
       
@@ -133,21 +129,20 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
       this.finishExam();
       this.stopTimer();
     }
-  }
+  };
 
   private finishExam(): void {
-    // save results in DB 
     const correctAnswer = this.questions[this.index].correct;
     this.userSelection === correctAnswer ? this.correctAnswers++ : this.wrongAnswers++ ;
     const userData = {
       totalExams: 1,
       correctAnswers: this.correctAnswers,
       wrongAnswers: this.wrongAnswers
-    }
+    };
 
     if (this.correctAnswers > 21) { 
-      userData['totalPassedExams'] = 1
-    }
+      userData['totalPassedExams'] = 1;
+    };
 
     this.sharedService.editUser(this.userId, userData)
       .pipe(take(1))
@@ -163,6 +158,7 @@ export class ExamHomeComponent implements OnInit, OnDestroy {
       let confirmData: ConfirmDialog = {
         message : 'Sunteţi sigur că doriţi să renunţaţi? '
       }
+      
       return await this.notificationService.confirmDialog(confirmData)
     }
 

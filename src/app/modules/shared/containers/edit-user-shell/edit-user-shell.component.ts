@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from '../../services/notification.service';
 import { SharedService } from '../../services/shared.service';
 import { AuthenticationService } from 'src/app/modules/auth/services/authentication.service';
-import { User } from 'src/app/modules/auth/interfaces/user';
 import { ConfirmDialog } from '../../interfaces/confirmDialog.interface';
 
 @Component({
@@ -88,29 +87,29 @@ export class EditUserShellComponent implements OnInit {
         .then(() => { 
 
           if (this.currentLoggedUserRole === 'admin') {
-            this.router.navigate(['admin/users'])
+            this.router.navigate(['admin/users']);
           } 
 
           if (this.currentLoggedUserRole === 'consumer') {
-            this.router.navigate(['consumer/statistics'])
+            this.router.navigate(['consumer/statistics']);
           } 
         })
     } else if (message === "login") {
       this.notificationService.successNotification('Utilizatorul tau a fost actualizat, este necesara re-autentificare!')
         .then(() => {
           
-          this.router.navigate(['/login'])
+          this.router.navigate(['/login']);
         })
     }
   };
 
   onCancel(): void {
     if (this.currentLoggedUserRole === 'admin') {
-      this.router.navigate(['admin/users'])
+      this.router.navigate(['admin/users']);
     } 
     
     if (this.currentLoggedUserRole === 'consumer') {
-      this.router.navigate(['consumer/statistics'])
+      this.router.navigate(['consumer/statistics']);
     }
   };
 
@@ -128,10 +127,11 @@ export class EditUserShellComponent implements OnInit {
       let confirmData: ConfirmDialog = {
         message : 'Sunteţi sigur că doriţi să renunţaţi? '
       }
+      
       return await this.notificationService.confirmDialog(confirmData)
     }
 
     return true;
-  }
+  };
 
 }

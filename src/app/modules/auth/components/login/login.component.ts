@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
-  }
+  };
 
   addNewUser(): void{
     this.router.navigate(['/add-user'])
-  }
+  };
 
   loginUser(): void {
     this.loginForm.markAllAsTouched();
@@ -59,5 +59,6 @@ export class LoginComponent implements OnInit {
           }
         );
     }
-  }
+  };
+  
 }

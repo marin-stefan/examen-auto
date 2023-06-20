@@ -1,0 +1,27 @@
+.editShellWrapper {
+    padding-top: 50px;
+    padding-bottom: 50px
+}
+
+.submitBtn {
+    color: white;
+    background-color: rgb(35, 122, 201);
+    margin-left: 10px;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+}
+
+.cancelBtn {
+    color: white;
+    background-color: rgb(224, 73, 83);
+    margin-left: 10px;
+    font-size: 20px;
+    width: 150px;
+    height: 80px;
+}
+
+.actionBtns {
+    width: 350px;
+    margin: auto;
+}

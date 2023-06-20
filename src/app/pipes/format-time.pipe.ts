@@ -1,5 +1,4 @@
 
-
 import { PipeTransform, Pipe } from "@angular/core";
 
 @Pipe({
@@ -9,6 +8,7 @@ import { PipeTransform, Pipe } from "@angular/core";
 export class FormatTimePipe implements PipeTransform {
     transform(value: number): string {
       const minutes: number = Math.floor((value % 3600) / 60);
+      
       return (
         ("00" + minutes).slice(-2) +
         ":" +

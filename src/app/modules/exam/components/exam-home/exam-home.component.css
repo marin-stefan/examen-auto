@@ -1,6 +1,5 @@
 
 .examWrapper {
-    /* background-color: blanchedalmond; */
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -9,7 +8,6 @@
 }
 
 .examHeader {
-    /* background-color: pink; */
     display: flex;
     width: 1500px;
     margin: auto;
@@ -20,7 +18,6 @@
 }
 
 .headerElem {
-    /* border: 1px solid rgb(175, 168, 168); */
     border-radius: 3px;
     width: 290px;
     height: 100px;
@@ -42,7 +39,6 @@
     margin: 0;
     font-weight: 400;
     font-size: 20px;
-    
 }
 
 .headerElem span {

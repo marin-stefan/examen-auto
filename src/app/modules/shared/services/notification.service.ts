@@ -15,25 +15,27 @@ export class NotificationService {
   constructor() { }
 
   public successNotification(message: string, title: string = ''): Promise<SweetAlertResult<Awaited<any>>> {
+
     return Swal.fire(title, message, 'success');
-  }
+  };
 
   public warningNotification(message: string, title: string = '') {
+
     return Swal.fire(title, message, 'warning')
-  }
+  };
 
   public errorNotification(error) {
     let text = '',
       title = 'Ooops...';
 
-    if(error.errors) {
+    if (error.errors) {
       error.errors.map((item, index) => {
         text += `<p> <span>${index + 1}.</span> ${Object.values(item)[0]} </p>`;
       });
       title = 'Validation error';
     }
 
-    if(!error.errors) {
+    if (!error.errors) {
       text = this.DEFAULT_ERROR_MESSAGE;
     }
 
@@ -56,6 +58,7 @@ export class NotificationService {
   };
 
   public confirmDialog(confirmData?: ConfirmDialog): Promise<boolean> {
+
     return Swal.fire({
       title: confirmData.title ? confirmData.title : this.defaultConfirmData.title,
       text: confirmData.message ? confirmData.message : this.defaultConfirmData.message,
@@ -65,6 +68,7 @@ export class NotificationService {
       confirmButtonText: 'Confirmă',
       cancelButtonText: 'Anulează'
     }).then((result) => {
+      
       return result.isConfirmed;
     })
   };

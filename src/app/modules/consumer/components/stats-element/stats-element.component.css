@@ -23,15 +23,15 @@
 }
 
 .green {
-    color: green
+    color: rgb(59, 186, 87);
 }
 
 .yellow {
-    color: orange;
+    color: rgb(239, 171, 61);
 }
 
 .red {
-    color: red;
+    color: rgb(224, 73, 83);
 }
 
 .stats {
@@ -48,5 +48,5 @@
     margin: 0;
     font-weight: 500;
     font-size: 50px;
-    color: rgb(35, 122, 201)
+    color: rgb(35, 122, 201);
 }

@@ -4,7 +4,10 @@
         <mat-spinner></mat-spinner>
     </div>
 
-    <div class="login-container" [formGroup]="loginForm" *ngIf="!loading"> 
+    <div class="login-container" 
+        [formGroup]="loginForm" 
+        *ngIf="!loading"> 
+        
         <div class="logo-container">
             <div class="logo">
                 <img src="../../../../../assets/images/logo final.jpg" alt="logo Directia Permise Auto">
@@ -15,7 +18,11 @@
                 <h2>Auto</h2>
             </div>
         </div>
-        <mat-form-field appearance="outline" class="form-field" [style.width.px]="345">
+
+        <mat-form-field 
+            appearance="outline" 
+            class="form-field" 
+            [style.width.px]="345">
             <mat-label>Utilizator</mat-label>
             <input 
                 matInput 
@@ -23,7 +30,10 @@
                 class="loginInput">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form-field" [style.width.px]="345">
+        <mat-form-field 
+            appearance="outline" 
+            class="form-field" 
+            [style.width.px]="345">
             <mat-label>Parolă</mat-label>
             <input 
                 matInput 
@@ -55,6 +65,7 @@
             type="button">
             Înregistrare
         </button>
+
         <div class="error-container">
             <div class="login-error" *ngIf="error === true">
                 <h4>Utilizator sau parolă greşite !</h4>
@@ -62,5 +73,5 @@
         </div>
 
     </div>
-
+    
 </div>

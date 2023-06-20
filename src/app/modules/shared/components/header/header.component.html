@@ -6,7 +6,10 @@
         </div>
         <div class="mainStatsWrapper">
             <div *ngIf="isConsumer()" class="statsWrapper">
-                <h4>Răspunsuri corecte: &nbsp;<span>{{ count }}</span></h4>
+                <h4>
+                    Răspunsuri corecte: &nbsp;
+                    <span>{{ count }}</span>
+                </h4>
             </div>
     
             <div *ngIf="isConsumer()" class="statsWrapper">
@@ -20,8 +23,6 @@
                 </h4>
             </div>
         </div>
-
-        
 
         <div class="headerOptions">
             <mat-icon class="userIcon">edit</mat-icon>

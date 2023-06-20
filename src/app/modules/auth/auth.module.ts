@@ -28,7 +28,7 @@ import { AuthenticationService } from './services/authentication.service';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     LoginComponent
@@ -43,4 +43,4 @@ import { AuthenticationService } from './services/authentication.service';
     },
   ]
 })
-export class AuthModule { }
+export class AuthModule { };

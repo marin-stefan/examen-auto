@@ -1,22 +1,83 @@
 
 <mat-spinner *ngIf="loading"></mat-spinner>
-
-<div class="title">
-    <h1>Listă completă intrebări</h1>
-    <h2>Răspunsul corect este cel haşurat cu culoarea verde</h2>
+<div class="mainWrapper">
+    <div class="leftMenu">
+        <div class="btnsWrapper">
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="!isSelected"
+                (click)="selectCategory()"
+                type="button"
+                mat-raised-button>
+                Categoria A
+            </button>
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="isSelected"
+                (click)="selectCategory()"
+                mat-raised-button>
+                Categoria B
+            </button>
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="!isSelected"
+                (click)="selectCategory()"
+                mat-raised-button>
+                Categoria C
+            </button>
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="!isSelected"
+                (click)="selectCategory()"
+                mat-raised-button>
+                Categoria D
+            </button>
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="!isSelected"
+                (click)="selectCategory()"
+                mat-raised-button>
+                Categoria E
+            </button>
+            <button
+                class="catBtn"
+                [class.nonSelected]="isSelected" 
+                [class.selected]="!isSelected"
+                (click)="selectCategory()"
+                mat-raised-button>
+                Redobândire
+            </button>
+        </div>
+        <!-- <button mat-raised-button class="addQuestionBtn" (click)="addQuestion()">Adaugă </button> -->
+    </div>
+    <div class="mainQuestionsContainer">
+        <div class="title">
+            <h1>Listă completă întrebări categoria B</h1>
+            <h2>Răspunsul corect este cel haşurat cu culoarea verde</h2>
+        </div>
+        
+        <div class="questionsWrapper">
+            <ng-container *ngFor="let question of questions$ | async; let i = index">
+                <app-questions-list-element
+                    [listMode]="true"
+                    [info]="question"
+                    [index]="i"
+                    class="questionElement">
+                </app-questions-list-element>
+                <p class="divider">
+                    - &nbsp;  - &nbsp;  - &nbsp;  {{ i+1 }}  &nbsp; - &nbsp;  -  &nbsp; -
+                </p>
+            </ng-container>
+        </div>
+    </div>
 </div>
 
-<div class="questionsWrapper">
-    <ng-container *ngFor="let question of questions$ | async; let i = index">
-        <app-questions-list-element
-            [listMode]="true"
-            [info]="question"
-            [index]="i"
-            class="questionElement">
-        </app-questions-list-element>
-        <p class="divider">- &nbsp;  - &nbsp;  - &nbsp;  {{ i+1 }}  &nbsp; - &nbsp;  -  &nbsp; -</p>
-    </ng-container>
-</div>
+
 
 
 

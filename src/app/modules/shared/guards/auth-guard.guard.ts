@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from '../../auth/services/authentication.service';
 import { AuthUser } from '../../auth/interfaces/auth-user.interface';
 import { AppRoutesEnum } from '../enums/appRoutesEnum';
@@ -19,14 +19,16 @@ export class AuthGuard implements CanActivate {
     if (user) {
       if (route.data['roles'] && route.data['roles'].indexOf(user.role) === -1) {
         this.router.navigate([AppRoutesEnum.Default]);
+        
         return false;
       }
+
       return true;
     }
 
     this.router.navigate([AppRoutesEnum.Login]);
 
     return false;
-  }
+  };
   
 }

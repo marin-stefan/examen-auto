@@ -29,19 +29,18 @@ export class UsersListShellComponent implements OnInit {
       lastName : new FormControl('',)
     });
     this.getUsers(); 
-  }
+  };
 
-  //getters
   get lastName() { return this.userSearchForm.get('lastName') };
 
   clearAll(): void {
     this.userSearchForm.reset();
     this.getUsers();
-  }
+  };
 
   onSubmit(): void {
     let query = {}
-    if(this.userSearchForm.value.lastName) {
+    if (this.userSearchForm.value.lastName) {
       query['lastName'] = (this.userSearchForm.value.lastName).toLowerCase()
     }
     
@@ -53,12 +52,14 @@ export class UsersListShellComponent implements OnInit {
       },
       error: (error) => this.notificationService.errorNotification(error)
     })
-  }
+  };
 
   getUsers(): void {
     this.loading = true;
     let query = {}
-    if(this.userSearchForm.value.lastName) query['firstName'] = this.userSearchForm.value.lastName
+    if (this.userSearchForm.value.lastName) {
+      query['firstName'] = this.userSearchForm.value.lastName
+    }
 
     this.adminService.getAllUsers(query).subscribe({
       next: (response) => {
@@ -68,7 +69,6 @@ export class UsersListShellComponent implements OnInit {
       },
       error: (error) => this.notificationService.errorNotification(error)
     })
-
-  }
+  };
 
 }

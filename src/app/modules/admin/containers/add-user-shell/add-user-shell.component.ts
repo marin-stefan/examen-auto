@@ -17,7 +17,7 @@ export class AddUserShellComponent  {
   private isDisabledSaveButton: boolean = true;
   private isFormSaved: boolean = false;
 
-  @ViewChild(AddEditUserFormComponent) userForm: AddEditUserFormComponent
+  @ViewChild(AddEditUserFormComponent) userForm: AddEditUserFormComponent;
 
   constructor(
     private router: Router,
@@ -70,11 +70,10 @@ export class AddUserShellComponent  {
       let confirmData: ConfirmDialog = {
         message : 'Sunteţi sigur că doriţi să renunţaţi? '
       }
+
       return await this.notificationService.confirmDialog(confirmData)
     }
 
     return true;
-  }
-
-
+  };
 }

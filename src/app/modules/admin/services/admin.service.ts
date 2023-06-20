@@ -14,8 +14,8 @@ export class AdminService {
   ) { }
 
   getAllUsers(searchParams): Observable<any> {
-    // return object with total number of users who are consumers
     let queryString = new URLSearchParams(searchParams).toString();
+    
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Get,
@@ -23,20 +23,9 @@ export class AdminService {
         options: {},
       }
     )
-  }
+  };
 
-  getFilteredUsers(lastName: string): Observable<any> {
-
-    return this.httpService.dispatchData(
-      {
-        method: HttpMethods.Get,
-        url: `/users?lastName=${lastName}`,
-        options: {}
-      }
-    )
-  }
-
-  addUser(userData): Observable<{ success: boolean, user: UserModel }> {
+  addUser(userData: UserModel): Observable<{ success: boolean, user: UserModel }> {
     
     return this.httpService.dispatchData(
       {
@@ -47,10 +36,6 @@ export class AdminService {
         }
       }
     )
-
-  }
-
-
-
+  };
 
 }

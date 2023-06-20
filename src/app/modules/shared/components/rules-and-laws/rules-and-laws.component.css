@@ -1,0 +1,30 @@
+.cod-rutier {
+    color: rgb(35, 122, 201);
+    width: 85%;
+    margin: auto;
+    font-size: large;
+    padding-top: 50px;
+}
+
+.cod-rutier h3 {
+    font-size: xx-large;
+}
+
+.title {
+    color: rgb(35, 122, 201);
+    padding-top: 50px;
+    margin: auto;
+}
+
+.title h1 {
+    margin: auto;
+    width: 300px;
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+.title h2 {
+    margin: auto;
+    width: 700px;
+    font-size: 21px;
+}

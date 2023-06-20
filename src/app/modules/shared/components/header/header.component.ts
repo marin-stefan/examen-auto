@@ -16,8 +16,6 @@ export class HeaderComponent implements OnInit {
   public name: string = '';
   public percentage: string;
   public count: number;
-  
-
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -30,11 +28,13 @@ export class HeaderComponent implements OnInit {
   };
 
   public isValueNaN(value: any): boolean {
+    
     return isNaN(value);
   };
 
   public isConsumer(): boolean {
-    return this.currentLoggedUserRole === 'consumer'
+
+    return this.currentLoggedUserRole === 'consumer';
   };
 
   private getUserInfo(): void {
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
       this.count = user['correctAnswers']
       this.percentage = ((user['correctAnswers'] / (user['correctAnswers'] + user['wrongAnswers'])) * 100).toFixed(2)
     })
-  }
+  };
 
   editUser(): void {
     if (this.currentLoggedUserRole === 'admin') {
@@ -55,9 +55,6 @@ export class HeaderComponent implements OnInit {
     } else if (this.currentLoggedUserRole === 'consumer') {
       this.router.navigate([`consumer/edit-user/${this.currentLoggedUserInfo._id}`])
     }
-    
-  }
-
-
+  };
 
 }

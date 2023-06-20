@@ -21,11 +21,10 @@ export class ExamResultComponent implements OnInit {
     } else {
       this.message = 'Mai încercaţi'
     }
-  }
+  };
 
   goToStatistics(): void {
     this.router.navigate(['consumer'])
-  }
-
+  };
 
 }

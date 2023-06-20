@@ -1,0 +1,156 @@
+
+
+<div class="mainFormWrapper">
+    
+    <form>
+        <fieldset>
+            <legend>Adaugă întrebare</legend>
+
+            <div class="formSection">
+                    <!-- Categorie -->
+                    <p>
+                        <mat-form-field appearance="outline" [style.width.px]="345" [style.font.px]="25">
+                            <mat-label>Categorie</mat-label>
+                            <!-- <input
+                                formControlName="QuestionCategory"
+                                matInput
+                                required> -->
+                            <mat-select [(ngModel)]="selectedCategory" name="Categorie">
+                                <mat-option 
+                                    *ngFor="let category of categories" 
+                                    [value]="category.value">
+                                    {{ category.viewValue }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="errorHandler('QuestionCategory', 'required')">
+                            Categoria este necesară
+                        </mat-error> -->
+                    </p>
+
+                    <!-- Intrebare -->
+                    <p>
+                        <mat-form-field appearance="outline" class="question">
+                            <mat-label>Întrebare</mat-label>
+                            <textarea
+                                formControlName="questionBody"
+                                matInput
+                                placeholder="Întrebare"
+                                required
+                                rows="6">
+                            </textarea>
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="errorHandler('questionBody', 'required')">
+                            Întrebarea este necesară
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('questionBody', 'minlength')">
+                            Întrebarea este prea scurtă
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('questionBody', 'maxlength')">
+                            Întrebarea este prea lungă
+                        </mat-error> -->
+                    </p>
+                
+                    <!-- Raspunsuri -->
+                    <p>
+                        
+                        <mat-form-field appearance="outline" class="answer">
+                            <mat-label>Răspuns A</mat-label>
+                            <textarea
+                                formControlName="AnswerA"
+                                matInput
+                                placeholder="Răspuns A"
+                                required
+                                rows="2">
+                            </textarea>
+                            <input type="checkbox">Corect?
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="errorHandler('AnswerA', 'required')">
+                                Întrebarea este necesară
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerA', 'minlength')">
+                            Întrebarea este prea scurtă
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerA', 'maxlength')">
+                            Întrebarea este prea lungă
+                        </mat-error> -->
+                    </p>
+
+                    <p>
+                        <mat-form-field appearance="outline" class="answer">
+                            <mat-label>Răspuns B</mat-label>
+                            <textarea
+                                formControlName="AnswerB"
+                                matInput
+                                placeholder="Răspuns B"
+                                required>
+                            </textarea>
+                            <input type="checkbox">Corect?
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="errorHandler('AnswerB', 'required')">
+                                Întrebarea este necesară
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerB', 'minlength')">
+                            Întrebarea este prea scurtă
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerB', 'maxlength')">
+                            Întrebarea este prea lungă
+                        </mat-error> -->
+                    </p>
+
+                    <p>
+                        <mat-form-field appearance="outline" class="answer">
+                            <mat-label>Răspuns C</mat-label>
+                            <textarea
+                                formControlName="AnswerC"
+                                matInput
+                                placeholder="Răspuns C"
+                                required>
+                            </textarea>
+                            <input type="checkbox">Corect?
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="errorHandler('AnswerC', 'required')">
+                                Întrebarea este necesară
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerC', 'minlength')">
+                            Întrebarea este prea scurtă
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('AnswerC', 'maxlength')">
+                            Întrebarea este prea lungă
+                        </mat-error> -->
+                    </p>
+                    <!-- <input type="file"> -->
+
+                    <!-- <p>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Imagine</mat-label>
+                            <input
+                                formControlName="questionImage"
+                                matInput
+                                placeholder="Imagine"
+                                required
+                                type="">
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandler('questionImage', 'required')">
+                            Numele este necesar
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('questionImage', 'minlength')">
+                            Numele este prea scurt
+                        </mat-error>
+                        <mat-error *ngIf="errorHandler('questionImage', 'maxlength')">
+                            Numele este prea lung
+                        </mat-error>
+                    </p> -->
+
+                    <div class="imageInput">
+                        <p>Adaugă imagine
+                            <span>
+                                <input type="file">
+                            </span>
+                        </p>
+                    </div>
+            </div>
+        </fieldset>
+    </form>
+    
+</div>

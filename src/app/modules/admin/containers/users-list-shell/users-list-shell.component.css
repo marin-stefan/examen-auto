@@ -1,5 +1,5 @@
 .userlistContainerMain {
-    display:flex;
+    display: flex;
     flex-direction: column;
     padding: 1% 5%;
 }
@@ -62,7 +62,6 @@ mat-table {
     margin-top: 30px;
     z-index: 1;
     position: relative;
-
 }
 
 td.mat-cell, th.mat-header-cell {
@@ -83,7 +82,6 @@ tr:nth-child(odd) {
 tr {
     text-align: center;
 }
-
 
 .editIcon {
     color:rgb(35, 122, 201);

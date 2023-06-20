@@ -14,7 +14,6 @@ import jwtDecode from 'jwt-decode';
 export class AuthenticationService {
   public user: Observable<User>
   private userSubject: BehaviorSubject<User>;
-  private loggedUser: User;
 
   constructor(
     private router: Router,
@@ -25,19 +24,19 @@ export class AuthenticationService {
    }
 
   public get userValue(): User {
-    return this.userSubject.value;
-  }
 
-  public login(username:string, password:string): Observable<User> {
+    return this.userSubject.value;
+  };
+
+  public login(username: string, password: string): Observable<User> {
 
     return this.httpService.dispatchData({
       method: HttpMethods.Post,
       url: '/user/login',
       options: {
-        body: {username: username, password: password}
+        body: { username: username, password: password } 
       }
-    }
-  ).pipe(map(authResult => {
+    }).pipe(map(authResult => {
       sessionStorage.setItem('token', authResult.token);
 
       let user = this.getDecodedAccessToken();
@@ -45,8 +44,9 @@ export class AuthenticationService {
       sessionStorage.setItem('loggedUserId', user.id);
       
       return user;
-    }));
-  }
+      }
+    ));
+  };
 
   public logout(): void {
     sessionStorage.removeItem('token');
@@ -54,14 +54,16 @@ export class AuthenticationService {
 
     this.userSubject.next(null);
     this.router.navigate([AppRoutesEnum.Login]);
-  }
+  };
 
   getDecodedAccessToken(): any {
     try {
+
       return jwtDecode(sessionStorage.getItem('token'))['user'];
     } catch(Error) {
+      
       return null
     }
-  }
+  };
 
 }

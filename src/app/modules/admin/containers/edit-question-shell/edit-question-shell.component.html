@@ -1,15 +1,8 @@
 
-<div class="userListMainContainer">    
-    <mat-spinner *ngIf="loading"></mat-spinner>
-
-    <div class="formContainer">
-        <app-add-edit-user-form></app-add-edit-user-form>
-    </div>
-
+<div class="editShellWrapper">
+    <app-add-edit-question-form></app-add-edit-question-form>
     <div class="actionBtns">
         <button
-            (click)="onSubmit()"
-            disabled="{{ isFormChanged }}"
             mat-raised-button
             type="button"
             class="submitBtn">
@@ -17,7 +10,6 @@
         </button>
             
         <button
-            (click)="onCancel()"
             mat-raised-button
             type="button"
             class="cancelBtn">
@@ -25,5 +17,3 @@
         </button>
     </div>
 </div>
-
-

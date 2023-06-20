@@ -1,0 +1,26 @@
+
+.mainFormWrapper {
+    width: 800px;
+    margin: auto;
+}
+
+.formSection {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.answer {
+    width: 700px;
+    font-size: 20px;
+}
+
+.question {
+    width : 700px;
+    font-size: 20px;
+}
+
+.imageInput {
+    font-size: 25px;
+}

@@ -7,6 +7,7 @@ import { AuthGuard } from '../shared/guards/auth-guard.guard';
 import { UserRoles } from '../shared/enums/userRolesEnum';
 import { EditUserShellComponent } from '../shared/containers/edit-user-shell/edit-user-shell.component';
 import { CanDeactivateGuard } from '../shared/guards/can-deactivate-guard.guard';
+import { RulesAndLawsComponent } from '../shared/components/rules-and-laws/rules-and-laws.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'statistics', component: ConsumerStatsComponent },
       { path: 'edit-user/:userId', component: EditUserShellComponent, canDeactivate: [CanDeactivateGuard] },
       { path: 'questions-list', component: QuestionsListShellComponent },
+      { path: 'law', component: RulesAndLawsComponent },
     ],
     canActivate: [AuthGuard],
     data: {roles: [UserRoles.Consumer]}

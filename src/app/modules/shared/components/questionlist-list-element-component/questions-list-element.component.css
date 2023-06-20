@@ -1,23 +1,42 @@
 
 .mainQuestionWrapper {
-    width: 1200px;
+    /* background-color: pink; */
+    width: 975px;
     display: flex;
     flex-direction: column;
     padding: 10px;
     margin: auto;
 }
 
+.questionHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainBox {
+    /* background-color: aquamarine; */
+    width: 1150px;
+    display: flex;
+    margin: auto;
+
+}
+
+.editWrapper {
+    display: flex;
+    align-items: end;
+}
+
 .questionTitle {
     padding: 10px 5px 30px 5px;
     align-items: center;
-    max-width: 1000px;
+    max-width: 800px;
     margin: auto;
 }
 
 .questionTitle h3 {
     color: rgb(35, 122, 201);
     font-weight: 500;
-    font-size: x-large;
+    font-size: large;
 }
 
 .questionBody {
@@ -25,11 +44,12 @@
     padding: 10px 5px 10px 5px;
     display: flex;
     justify-content: space-between;
+    /* background-color: aqua; */
 }
 
 .questionBody img {
-    height: 390px;
-    max-width: 500px
+    height: 340px;
+    max-width: 400px;
 }
 
 .questionAnswers {
@@ -39,7 +59,8 @@
 }
 
 .answerWrapper {
-    width: 685px;
+    /* background-color: bisque; */
+    width: 560px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,9 +68,9 @@
 
 .answerText {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    height: 110px;
+    height: 100px;
     border-radius: 5px;
-    width: 570px;
+    width: 450px;
     padding: 5px;
     display: flex;
     align-items: center;
@@ -62,8 +83,8 @@
 }
 
 .answerBtn {
-    width: 95px;
-    height: 120px;
+    width: 90px;
+    height: 110px;
 }
 
 .answerBtn h2 {
@@ -77,4 +98,10 @@
 
 .wrong {
     background-color: rgb(245, 107, 105);
+}
+
+.editIcon {
+    color: rgb(35, 122, 201);
+    transform: scale(2);
+    padding-bottom: 10px;
 }

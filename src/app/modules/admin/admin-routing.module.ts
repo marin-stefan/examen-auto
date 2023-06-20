@@ -8,6 +8,8 @@ import { UserRoles } from '../shared/enums/userRolesEnum';
 import { AddUserShellComponent } from './containers/add-user-shell/add-user-shell.component';
 import { EditUserShellComponent } from '../shared/containers/edit-user-shell/edit-user-shell.component';
 import { CanDeactivateGuard } from '../shared/guards/can-deactivate-guard.guard';
+import { AddQuestionShellComponent } from './containers/add-question-shell/add-question-shell.component'
+import { EditQuestionShellComponent } from './containers/edit-question-shell/edit-question-shell.component'
 
 const routes: Routes = [
     {
@@ -17,7 +19,10 @@ const routes: Routes = [
             { path: 'users', component: UsersListShellComponent },
             { path: 'user/add-user', component: AddUserShellComponent, canDeactivate: [CanDeactivateGuard] },
             { path: 'user/edit-user/:userId', component: EditUserShellComponent, canDeactivate: [CanDeactivateGuard] },
-            { path: 'questions-list', component: QuestionsListShellComponent }
+            { path: 'questions-list', component: QuestionsListShellComponent },
+            { path: 'question-list/add-question', component: AddQuestionShellComponent },
+            { path: 'question-list/edit-question/:questionId', component: EditQuestionShellComponent
+         }
         ],
         canActivate: [AuthGuard],
         data: {roles: [UserRoles.Admin]}

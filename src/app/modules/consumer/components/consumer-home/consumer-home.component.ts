@@ -14,7 +14,7 @@ export class ConsumerHomeComponent implements OnInit {
       route: 'statistics'
     },
     {
-      label: 'Listă întrebări',
+      label: 'Mediu învăţare',
       icon: 'subject',
       route: 'questions-list'
     },
@@ -22,6 +22,11 @@ export class ConsumerHomeComponent implements OnInit {
       label: 'Simulare examen',
       icon: 'airplay',
       route: '/exam'
+    },
+    {
+      label: 'Legislatie',
+      icon: 'book',
+      route: 'law'
     }
   ]
 

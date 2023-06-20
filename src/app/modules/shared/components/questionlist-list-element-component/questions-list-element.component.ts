@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { QuestionModel } from '../../interfaces/question-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questions-list-element',
@@ -27,14 +28,16 @@ export class QuestionsListElementComponent implements OnInit {
   @Input() listMode: boolean;
   @Output() selectedAnswerEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   addNewItem(value: string) {
     this.selectedAnswerEvent.emit(value);
-  }
+  };
 
   private populateCorrectAnswers(value: string): void {
 
@@ -51,12 +54,12 @@ export class QuestionsListElementComponent implements OnInit {
 
   selectAnswer(option: string): void {
     if (this.listMode === true) {
-      if (this.answerable){
+      if (this.answerable) {
         this.populateCorrectAnswers(option);
       }
+
       return
     };
-    
     const selectedOption = this.answerSelections[option];
     
     if (selectedOption) {
@@ -76,5 +79,11 @@ export class QuestionsListElementComponent implements OnInit {
       this[answerKey] = false;
     }
   };
+
+  editQuestion(value): void {
+    console.log("ediq")
+    console.log(value)
+    this.router.navigate(['admin/question-list/edit-question/fsafsfsd'])
+  }
 
 }

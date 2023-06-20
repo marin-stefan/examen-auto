@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-user-form',
@@ -64,11 +64,11 @@ export class AddEditUserFormComponent implements OnInit {
     this.activatedRoute.params
       .pipe(take(1))
       .subscribe(param => {
-        if(param['userId']) {
+        if (param['userId']) {
           this.passwordBtn = true;
-          this.hidePasswordField()
+          this.hidePasswordField();
         }
-      } )
+      })
   };
 
   hidePasswordField(): void {
@@ -82,6 +82,7 @@ export class AddEditUserFormComponent implements OnInit {
   public errorHandler(controlName: string, errorName: string): boolean {
     let control: AbstractControl = this.editUserFormGroup.controls[controlName];
     if (control.touched) {
+      
       return control.hasError(errorName);
     }
 

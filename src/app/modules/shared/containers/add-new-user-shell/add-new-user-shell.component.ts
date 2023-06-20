@@ -44,7 +44,6 @@ export class AddNewUserShellComponent implements OnInit {
       user['totalPassedExams'] = 0;
       user['correctAnswers'] = 0;
 
-      
       this.adminService.addUser(user)
         .pipe(take(1))
         .subscribe((response) => {
@@ -61,7 +60,7 @@ export class AddNewUserShellComponent implements OnInit {
   };
 
   onCancel(): void {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   };
 
   public async canDeactivate(): Promise<boolean> {
@@ -69,10 +68,11 @@ export class AddNewUserShellComponent implements OnInit {
       let confirmData: ConfirmDialog = {
         message : 'Sunteţi sigur că doriţi să renunţaţi? '
       }
+      
       return await this.notificationService.confirmDialog(confirmData)
     }
 
     return true;
-  }
+  };
 
 }

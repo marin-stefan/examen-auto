@@ -19,16 +19,20 @@ export class StatsElementComponent implements OnInit {
   getPercentageColorClass(value: number) {
     
     if (value < 50) {
+
       return 'red'
     } else if (value >= 50 && value < 80) {
+
       return 'yellow'
     } else  {
+
       return 'green'
     }
   };
 
   public isValueNaN(value: any): boolean {
+    
     return isNaN(value);
-  }
+  };
 
 }

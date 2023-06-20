@@ -12,8 +12,7 @@
                         formControlName="lastName"
                         matInput
                         placeholder="Nume"
-                        required
-                    >
+                        required>
                 </mat-form-field>
                 <mat-error *ngIf="errorHandler('lastName', 'required')">
                     Numele este necesar
@@ -34,8 +33,7 @@
                         formControlName="firstName"
                         matInput
                         placeholder="Prenume"
-                        required
-                    >
+                        required>
                 </mat-form-field>
                 <mat-error *ngIf="errorHandler('firstName', 'required')">
                     Prenumele este necesar
@@ -57,8 +55,7 @@
                         formControlName="email"
                         matInput
                         placeholder="Email"
-                        required
-                    >
+                        required>
                 </mat-form-field>
                 <mat-error *ngIf="errorHandler('email', 'required')">
                     Adresa de email este necesară
@@ -78,8 +75,7 @@
                         formControlName="username"
                         matInput
                         placeholder="Utilizator"
-                        required
-                    >
+                        required>
                 </mat-form-field>
                 <mat-error *ngIf="errorHandler('username', 'required')">
                     Utilizator este necesar
@@ -100,8 +96,7 @@
                     <input
                         formControlName="password"
                         matInput
-                        placeholder="Parola"
-                    >
+                        placeholder="Parola">
                 </mat-form-field>
             </p>
             <p>
@@ -116,7 +111,12 @@
                 </mat-error>
             </p>
             <p *ngIf="passwordBtn">
-                <button mat-raised-button (click)="hidePasswordField()" class="passwordHideBtn">Schimbă parola</button>
+                <button 
+                    mat-raised-button 
+                    (click)="hidePasswordField()" 
+                    class="passwordHideBtn">
+                    Schimbă parola
+                </button>
             </p>
             
         </div>

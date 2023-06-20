@@ -1,75 +1,88 @@
+<div class="mainBox">
 
-<div class="mainQuestionWrapper">
-    <div class="questionTitle">
-        <h3>
-            {{ info.text }}
-        </h3>
-    </div>
-
-    <div class="questionBody">
-        <div class="questionAnswers">
-            <div class="answerWrapper">
-                <button 
-                    class="answerBtn"
-                    mat-raised-button
-                    (click)="selectAnswer('A'); addNewItem('A')"
-                    [class.selected]="isFirstAnswerSelected"
-                    [class.wrong]="isFirstAnswerSelectedWrong">
-                    <h2>A</h2>
-                </button>
-                <div 
-                    class="answerText"
-                    [class.selected]="isFirstAnswerSelected"
-                    [class.wrong]="isFirstAnswerSelectedWrong">
-                    <h4>
-                        {{ info.answers['A'] }}
-                    </h4>
-                </div>
+    <div class="mainQuestionWrapper">
+        <div class="questionHeader">
+            <div></div>
+            <div class="questionTitle">
+                <h3>
+                    {{ info.text }}
+                </h3>
             </div>
-
-
-            <div class="answerWrapper">
-                <button 
-                    class="answerBtn" 
-                    mat-raised-button
-                    (click)="selectAnswer('B'); addNewItem('B')"
-                    [class.selected]="isSecondAnswerSelected"
-                    [class.wrong]="isSecondAnswerSelectedWrong">
-                    <h2>B</h2>
-                </button>
-                <div 
-                    class="answerText"
-                    [class.selected]="isSecondAnswerSelected"
-                    [class.wrong]="isSecondAnswerSelectedWrong">
-                    <h4>
-                        {{ info.answers['B'] }}
-                    </h4>
-                </div>
-            </div>
-            <div class="answerWrapper">
-                <button 
-                    class="answerBtn" 
-                    mat-raised-button
-                    (click)="selectAnswer('C'); addNewItem('C')"
-                    [class.selected]="isThirdAnswerSelected"
-                    [class.wrong]="isThirdAnswerSelectedWrong">
-                    <h2>C</h2>
-                </button>
-                <div 
-                    class="answerText"
-                    [class.selected]="isThirdAnswerSelected"
-                    [class.wrong]="isThirdAnswerSelectedWrong">
-                    <h4>
-                        {{ info.answers['C'] }}
-                    </h4>
-                </div>
+            <div class="editWrapper">
+                <!-- <mat-icon class="editIcon" (click)="editQuestion(info.name)">edit</mat-icon> -->
             </div>
         </div>
 
-        <div class="questionImage">
-            <img src="http://localhost:8080/uploads/{{info.name}}.png">
+        <div class="questionBody">
+            <div class="questionAnswers">
+                <div class="answerWrapper">
+                    <button 
+                        class="answerBtn"
+                        mat-raised-button
+                        (click)="selectAnswer('A'); addNewItem('A')"
+                        [class.selected]="isFirstAnswerSelected"
+                        [class.wrong]="isFirstAnswerSelectedWrong">
+                        <h2>A</h2>
+                    </button>
+                    <div 
+                        class="answerText"
+                        [class.selected]="isFirstAnswerSelected"
+                        [class.wrong]="isFirstAnswerSelectedWrong">
+                        <h4>
+                            {{ info.answers['A'] }}
+                        </h4>
+                    </div>
+                </div>
+
+
+                <div class="answerWrapper">
+                    <button 
+                        class="answerBtn" 
+                        mat-raised-button
+                        (click)="selectAnswer('B'); addNewItem('B')"
+                        [class.selected]="isSecondAnswerSelected"
+                        [class.wrong]="isSecondAnswerSelectedWrong">
+                        <h2>B</h2>
+                    </button>
+                    <div 
+                        class="answerText"
+                        [class.selected]="isSecondAnswerSelected"
+                        [class.wrong]="isSecondAnswerSelectedWrong">
+                        <h4>
+                            {{ info.answers['B'] }}
+                        </h4>
+                    </div>
+                </div>
+                <div class="answerWrapper">
+                    <button 
+                        class="answerBtn" 
+                        mat-raised-button
+                        (click)="selectAnswer('C'); addNewItem('C')"
+                        [class.selected]="isThirdAnswerSelected"
+                        [class.wrong]="isThirdAnswerSelectedWrong">
+                        <h2>C</h2>
+                    </button>
+                    <div 
+                        class="answerText"
+                        [class.selected]="isThirdAnswerSelected"
+                        [class.wrong]="isThirdAnswerSelectedWrong">
+                        <h4>
+                            {{ info.answers['C'] }}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="questionImage">
+                <img src="http://localhost:8080/uploads/{{ info.name }}.png">
+            </div>
+            
         </div>
+
     </div>
+
+
+    
 
 </div>
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UserModel } from '../interfaces/user-model';
 import { HttpService } from './http.service';
 import { HttpMethods } from '../enums/httpMethodsEnum';
@@ -15,22 +15,24 @@ export class SharedService {
   ) { }
 
   public getUser(userId: string): Observable<UserModel> {
+
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Get,
-        url: `/user/${userId}`
+        url: `/user/${ userId }`
       }
     );
-  }
+  };
 
   public getUserStats(userId: string): Observable<any> {
+
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Get,
-        url: `/user/stats/${userId}`
+        url: `/user/stats/${ userId }`
       }
     );
-  }
+  };
 
   public editUser(userId: string, userData): Observable<{ success: boolean, user: UserModel }> {
     userData['_id'] = userId;
@@ -38,15 +40,16 @@ export class SharedService {
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Put,
-        url: `/user/${userId}`,
+        url: `/user/${ userId }`,
         options: {
           body: userData
         }
       }
     );
-  }
+  };
 
   public getAllQuestions(): Observable<QuestionModel[]> {
+    
     return this.httpService.dispatchData(
       {
         method: HttpMethods.Get,
@@ -54,6 +57,6 @@ export class SharedService {
         options: {},
       }
     )
-  }
+  };
 
 }
